@@ -1,0 +1,6 @@
+{
+  "name": "Motions by MOB",
+  "description": "Premium automotive videography landing page for Motions by MOB (MOB) - Quiet Authority. Understated Power.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

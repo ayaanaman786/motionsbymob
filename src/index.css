@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "Outfit", "Helvetica Neue", sans-serif;
+  --color-brand-red: #a50000;
+  --color-dark-gray: #090909;
+  --color-medium-gray: #141414;
+}
+
+.brutal {
+  font-family: "Bebas Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.outfit-editorial {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 300;
+  letter-spacing: 0.32em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a50000;
+}
+
+/* Custom Cinematic Utilities */
+.letterbox-top {
+  border-top: 35px solid #000000;
+}
+
+.letterbox-bottom {
+  border-bottom: 35px solid #000000;
+}
+
+/* Red Taillight Glow effect */
+.red-glow {
+  text-shadow: 0 0 10px rgba(165, 0, 0, 0.6), 0 0 20px rgba(165, 0, 0, 0.4);
+}
+
+.box-glow {
+  box-shadow: 0 0 15px rgba(165, 0, 0, 0.3);
+}
+
+.border-glow {
+  border-color: rgba(165, 0, 0, 0.4);
+  box-shadow: inset 0 0 10px rgba(165, 0, 0, 0.15), 0 0 10px rgba(165, 0, 0, 0.15);
+}
+
+/* Scanline Effect */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Subtle Drift animation */
+@keyframes ambient-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(1%, -1%) scale(1.03);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+}
+
+.animate-ambient {
+  animation: ambient-drift 15s ease-in-out infinite;
+}
+
+/* Lens Flare horizontal glow effect */
+.lens-flare-red {
+  background: radial-gradient(ellipse at center, rgba(165, 0, 0, 0.8) 0%, rgba(165, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(4px);
+}
