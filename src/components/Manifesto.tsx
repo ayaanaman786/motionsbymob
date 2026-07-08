@@ -57,6 +57,8 @@ export default function Manifesto() {
             <img
               src="/images/merc_rose.webp"
               alt="Mercedes Rose Cinematic Study"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[4000ms] ease-out group-hover:scale-105"
               referrerPolicy="no-referrer"
             />

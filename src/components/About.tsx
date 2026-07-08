@@ -26,27 +26,75 @@ export default function About() {
         </div>
 
         {/* Studio DNA Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start lg:grid-flow-row-dense">
           
-          {/* Left Column: Heritage narrative & metrics */}
-          <div className="lg:col-span-6 space-y-10">
-            <div className="space-y-6">
-              <span className="outfit-editorial text-[11px] text-zinc-400 uppercase tracking-wider block">
-                [ THE MANIFESTO ]
+          {/* Bio Module */}
+          <div className="lg:col-span-6 space-y-6 order-1 lg:order-1">
+            <span className="outfit-editorial text-[11px] text-zinc-400 uppercase tracking-wider block">
+              [ THE MANIFESTO ]
+            </span>
+            <h3 className="brutal text-xl text-white tracking-tight uppercase">
+              UNIFIED PRESENCE.
+            </h3>
+            <p className="outfit-editorial text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+              MOB is an exercise in quiet authority. Inspired by the clean luxury SUV culture of cities like Moscow and Dubai, we reject loud modifications in favor of OEM+ perfection. Our fleet is built on a single philosophy of simplicity, precision, and presence.
+            </p>
+            <p className="outfit-editorial text-xs sm:text-sm text-zinc-400 leading-relaxed font-light">
+              When our vehicles arrive together, they create a seamless silhouette of glass and metal. We do not compete for attention. We simply command it.
+            </p>
+          </div>
+
+          {/* Profile Distorted Effect Module (Picture) */}
+          <div className="lg:col-span-6 lg:row-span-3 bg-[#090909]/80 border border-white/10 p-6 sm:p-8 relative cursor-crosshair order-2 lg:order-2">
+            <div className="absolute top-0 right-0 h-[2px] w-24 bg-[#ff2a2a]" />
+            
+            <div className="flex items-center justify-between mb-6 relative z-10">
+              <span className="outfit-editorial text-[11px] text-[#ff2a2a] uppercase tracking-widest font-bold">
+                [ FOUNDER // SYNDICATE LEAD ]
               </span>
-              <h3 className="brutal text-xl text-white tracking-tight uppercase">
-                UNIFIED PRESENCE.
-              </h3>
-              <p className="outfit-editorial text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
-                MOB is an exercise in quiet authority. Inspired by the clean luxury SUV culture of cities like Moscow and Dubai, we reject loud modifications in favor of OEM+ perfection. Our fleet is built on a single philosophy of simplicity, precision, and presence.
-              </p>
-              <p className="outfit-editorial text-xs sm:text-sm text-zinc-400 leading-relaxed font-light">
-                When our vehicles arrive together, they create a seamless silhouette of glass and metal. We do not compete for attention. We simply command it.
-              </p>
+              <span className="outfit-editorial text-[11px] text-zinc-400 font-mono">
+                MOHIB_01
+              </span>
             </div>
 
+            {/* Profile Image Container with Hover/Touch Distortion Effect */}
+            <div className="relative w-full aspect-[4/5] bg-black mb-6 overflow-hidden border border-white/5 group" tabIndex={0}>
+              {/* Base Image */}
+              <img 
+                src="/images/mohib_profile.webp" 
+                alt="Mohib - Founder of MOB" 
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out z-10 group-hover:opacity-0 group-active:opacity-0 focus:opacity-0"
+              />
+              {/* Distorted Image (Revealed on Hover/Touch) */}
+              <img 
+                src="/images/mohib_profile_distorted.webp" 
+                alt="Mohib Distorted Artistic Portrait" 
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover z-0"
+              />
+              {/* Scanline / Grain Overlay */}
+              <div className="absolute inset-0 scanlines opacity-50 z-20 pointer-events-none" />
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div>
+                <h4 className="brutal text-2xl text-white font-bold tracking-tight uppercase">
+                  MOHIB
+                </h4>
+                <span className="outfit-editorial text-[11px] text-zinc-400 tracking-wider uppercase font-mono block">
+                  FOUNDER / LEAD PRODUCER
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Metrics & Collaborations Module */}
+          <div className="lg:col-span-6 space-y-10 order-3 lg:order-3">
             {/* Micro Technical counters */}
-            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+            <div className="grid grid-cols-2 gap-4 pt-6 lg:pt-0 border-t border-white/10 lg:border-t-0">
               <div className="bg-black/40 border border-white/5 p-4 relative">
                 <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-[#ff2a2a]/40 rounded-full m-3" />
                 <span className="font-mono text-xl md:text-3xl text-white font-bold block">
@@ -80,50 +128,6 @@ export default function About() {
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Right Column: Profile Distorted Effect Module */}
-          <div className="lg:col-span-6 bg-[#090909]/80 border border-white/10 p-6 sm:p-8 relative cursor-crosshair">
-            <div className="absolute top-0 right-0 h-[2px] w-24 bg-[#ff2a2a]" />
-            
-            <div className="flex items-center justify-between mb-6 relative z-10">
-              <span className="outfit-editorial text-[11px] text-[#ff2a2a] uppercase tracking-widest font-bold">
-                [ FOUNDER // SYNDICATE LEAD ]
-              </span>
-              <span className="outfit-editorial text-[11px] text-zinc-400 font-mono">
-                MOHIB_01
-              </span>
-            </div>
-
-            {/* Profile Image Container with Hover Distortion Effect */}
-            <div className="relative w-full aspect-[4/5] bg-black mb-6 overflow-hidden border border-white/5 group">
-              {/* Base Image */}
-              <img 
-                src="/images/mohib_profile.webp" 
-                alt="Mohib - Founder of MOB" 
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out z-10 group-hover:opacity-0"
-              />
-              {/* Distorted Image (Revealed on Hover) */}
-              <img 
-                src="/images/mohib_profile_distorted.webp" 
-                alt="Mohib Distorted Artistic Portrait" 
-                className="absolute inset-0 w-full h-full object-cover z-0"
-              />
-              {/* Scanline / Grain Overlay */}
-              <div className="absolute inset-0 scanlines opacity-50 z-20 pointer-events-none" />
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div>
-                <h4 className="brutal text-2xl text-white font-bold tracking-tight uppercase">
-                  MOHIB
-                </h4>
-                <span className="outfit-editorial text-[11px] text-zinc-400 tracking-wider uppercase font-mono block">
-                  FOUNDER / LEAD PRODUCER
-                </span>
-              </div>
-            </div>
-
           </div>
 
         </div>

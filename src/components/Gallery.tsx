@@ -7,6 +7,7 @@ import GalleryCard from './GalleryCard';
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'feature' | 'oem' | 'cinematic' | 'detail'>('all');
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Filter gallery items based on click state
   const filteredItems = activeFilter === 'all' 
@@ -124,15 +125,24 @@ export default function Gallery() {
                   />
                 ) : (
                   /* Fallback to inspect high contrast photo */
-                  <div className="absolute inset-0">
+                  <div className="absolute inset-0 group">
                     <img 
                       src={selectedItem.imageUrl} 
                       alt={selectedItem.title} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60" />
-                    <div className="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border border-white/10 outfit-editorial text-[11px] text-gray-300">
+                    <button 
+                      onClick={() => setIsFullscreen(true)}
+                      className="absolute inset-0 w-full h-full flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-zoom-in"
+                    >
+                      <div className="bg-black/90 border border-white/20 px-6 py-3 flex items-center gap-3">
+                        <Maximize2 className="w-5 h-5 text-white" />
+                        <span className="outfit-editorial text-[11px] text-white tracking-widest uppercase">Fullscreen Inspect</span>
+                      </div>
+                    </button>
+                    <div className="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border border-white/10 outfit-editorial text-[11px] text-gray-300 pointer-events-none">
                       SIMULATED INTERACTIVE VIEW // PRE-RENDER
                     </div>
                   </div>
@@ -195,6 +205,33 @@ export default function Gallery() {
               </div>
 
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* True Fullscreen Uncropped Image Viewer */}
+      {isFullscreen && selectedItem && !selectedItem.videoUrl && (
+        <div className="fixed inset-0 z-[60] bg-black flex items-center justify-center p-4 md:p-12 animate-fade-in">
+          <div 
+            className="absolute inset-0 cursor-zoom-out" 
+            onClick={() => setIsFullscreen(false)} 
+          />
+          <img 
+            src={selectedItem.imageUrl} 
+            alt={selectedItem.title} 
+            className="relative z-10 w-full h-full object-contain pointer-events-none drop-shadow-[0_0_50px_rgba(255,42,42,0.15)]"
+            referrerPolicy="no-referrer"
+          />
+          <button 
+            onClick={() => setIsFullscreen(false)}
+            className="absolute top-6 right-6 z-20 text-white/50 hover:text-white bg-black/50 hover:bg-black p-3 rounded-full transition-all duration-300 cursor-pointer"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          
+          {/* Subtle Telemetry Overlay */}
+          <div className="absolute bottom-6 left-6 z-20 outfit-editorial text-[11px] text-zinc-500 tracking-widest uppercase pointer-events-none">
+            [ RAW DATA // FULLSCALE UNCOMPRESSED ]
           </div>
         </div>
       )}

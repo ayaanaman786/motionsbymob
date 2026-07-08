@@ -29,6 +29,8 @@ export default function Hero() {
         <img
           src="/images/IMG_5621.webp"
           alt="Cinematic Black Revo Silhoutte"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-center scale-105 animate-ambient transition-transform duration-[10000ms]"
           referrerPolicy="no-referrer"
         />

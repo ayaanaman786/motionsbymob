@@ -13,13 +13,25 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
   const [blurAmount, setBlurAmount] = useState(0);
   const [focusPercentage, setFocusPercentage] = useState(100);
   const [isHovered, setIsHovered] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const calculateDoF = () => {
-      if (!cardRef.current) return;
+      if (!cardRef.current) {
+        ticking = false;
+        return;
+      }
       const rect = cardRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       
+      // Optimization: Only calculate if the element is near or within the viewport
+      if (rect.bottom < -500 || rect.top > viewportHeight + 500) {
+        ticking = false;
+        return;
+      }
+
       // Calculate center coordinates
       const cardCenterY = rect.top + rect.height / 2;
       const viewportCenterY = viewportHeight / 2;
@@ -44,18 +56,26 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
       
       setBlurAmount(currentBlur);
       setFocusPercentage(currentFocus);
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(calculateDoF);
+        ticking = true;
+      }
     };
 
     // Run once on load
     calculateDoF();
 
-    // Listen to scroll and resize
-    window.addEventListener('scroll', calculateDoF, { passive: true });
-    window.addEventListener('resize', calculateDoF, { passive: true });
+    // Listen to scroll and resize with optimized RAF debouncing
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     
     return () => {
-      window.removeEventListener('scroll', calculateDoF);
-      window.removeEventListener('resize', calculateDoF);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
   }, []);
 
@@ -68,22 +88,43 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
     <div 
       ref={cardRef}
       onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${item.title}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group bg-[#090909] border border-white/10 hover:border-[#ff2a2a]/40 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col relative"
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      className="group bg-[#090909] border border-white/10 hover:border-[#ff2a2a]/40 focus:border-[#ff2a2a]/40 focus:outline-none transition-all duration-500 cursor-pointer overflow-hidden flex flex-col relative"
     >
       {/* Outer visual bounding box */}
       <div className="aspect-[16/10] overflow-hidden relative bg-black">
+        {/* Loading Skeleton */}
+        {!isImageLoaded && (
+          <div className="absolute inset-0 bg-zinc-900 animate-pulse z-0 flex items-center justify-center">
+            <span className="outfit-editorial text-[9px] text-zinc-600 uppercase tracking-widest">Awaiting Optics...</span>
+          </div>
+        )}
+
         {/* Image plate with real-time blur/grayscale filters and custom easing transition */}
         <img
           src={item.imageUrl}
           alt={item.title}
-          className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setIsImageLoaded(true)}
+          className={`w-full h-full object-cover scale-100 group-hover:scale-105 group-focus:scale-105 transition-transform duration-700 ease-out relative z-10 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
           style={{
             filter: `grayscale(${isHovered ? 0 : 0.85}) blur(${activeBlur.toFixed(2)}px)`,
             transition: isHovered 
-              ? 'filter 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)' 
-              : 'filter 0.15s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)'
+              ? 'filter 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-in' 
+              : 'filter 0.15s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-in'
           }}
           referrerPolicy="no-referrer"
         />

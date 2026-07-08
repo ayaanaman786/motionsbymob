@@ -241,11 +241,12 @@ export default function CinematicControls({
             <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest uppercase">
               [ TECHNICAL PORTFOLIO SUITE ]
             </span>
-            <button 
+            <button
               onClick={(e) => {
                 e.stopPropagation();
                 setShowTooltip(false);
               }}
+              aria-label="Dismiss tooltip"
               className="text-zinc-600 hover:text-white transition-colors cursor-pointer"
             >
               <X className="w-3 h-3" />
@@ -264,6 +265,7 @@ export default function CinematicControls({
           setIsOpen(!isOpen);
           setShowTooltip(false);
         }}
+        aria-label="Toggle Cinematic Tuning Deck"
         className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border ${
           isOpen
             ? 'bg-[#ff2a2a] border-[#ff2a2a] text-white rotate-90 shadow-[0_0_20px_#ff2a2a]'
@@ -300,6 +302,7 @@ export default function CinematicControls({
                 <button
                   key={lut.id}
                   onClick={() => setLutGrade(lut.id)}
+                  aria-label={`Apply ${lut.name} color grade`}
                   className={`py-1.5 px-3 text-left border rounded-sm transition-all duration-200 cursor-pointer ${
                     lutGrade === lut.id
                       ? 'bg-[#ff2a2a]/10 border-[#ff2a2a] text-white'
@@ -323,6 +326,7 @@ export default function CinematicControls({
                 <button
                   key={ratio.id}
                   onClick={() => setAspectRatio(ratio.id)}
+                  aria-label={`Apply ${ratio.name} aspect ratio`}
                   className={`py-1.5 px-3 text-left border rounded-sm transition-all duration-200 cursor-pointer ${
                     aspectRatio === ratio.id
                       ? 'bg-[#ff2a2a]/10 border-[#ff2a2a] text-white'
@@ -345,6 +349,7 @@ export default function CinematicControls({
               </span>
               <button
                 onClick={toggleAudio}
+                aria-label={isAudioPlaying ? "Turn off engine drone" : "Turn on engine drone"}
                 className={`py-1 px-2 border rounded-sm text-[11px] outfit-editorial tracking-widest uppercase transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                   isAudioPlaying
                     ? 'bg-[#ff2a2a] border-[#ff2a2a] text-white animate-pulse'

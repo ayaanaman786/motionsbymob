@@ -28,6 +28,7 @@ export default function GeminiChatbot() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   // Auto scroll to latest message
   const scrollToBottom = () => {
@@ -63,12 +64,19 @@ export default function GeminiChatbot() {
     setIsLoading(true);
 
     try {
+      // Abort any existing request
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+      abortControllerRef.current = new AbortController();
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ messages: updatedMessages }),
+        signal: abortControllerRef.current.signal,
       });
 
       if (!response.ok) {
@@ -82,10 +90,15 @@ export default function GeminiChatbot() {
 
       setMessages((prev) => [...prev, { role: 'model', text: data.text }]);
     } catch (err: any) {
+      if (err.name === 'AbortError') {
+        console.log('Fetch aborted');
+        return;
+      }
       console.error(err);
       setError(err.message || 'Mechanical connection offline. Please retry.');
     } finally {
       setIsLoading(false);
+      abortControllerRef.current = null;
     }
   };
 
@@ -128,10 +141,11 @@ export default function GeminiChatbot() {
           setIsOpen(!isOpen);
           setShowNotification(false);
         }}
+        aria-label="Toggle Cinematic Assistant Chatbot"
         className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border ${
           isOpen
-            ? 'bg-[#ff2a2a] border-[#ff2a2a] text-white rotate-90 shadow-[0_0_20px_#ff2a2a]'
-            : 'bg-zinc-900/90 hover:bg-black border-white/15 text-zinc-300 hover:text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)]'
+            ? 'bg-[#a50000] border-[#a50000] text-white rotate-90 shadow-[0_0_20px_#a50000]'
+            : 'bg-zinc-950/90 hover:bg-black border-white/15 text-zinc-300 hover:text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)]'
         }`}
       >
         {isOpen ? <X className="w-5 h-5" /> : <MessageSquare className="w-5 h-5" />}
