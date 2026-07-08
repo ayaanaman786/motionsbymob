@@ -54,11 +54,11 @@ export default function MOBLogo({ variant = 'full', className = '', glow = true 
       </h1>
 
       {/* Underline Red Glow Bar (Taillight Glow) */}
-      <div className="w-full max-w-[220px] md:max-w-[280px] h-[3px] bg-[#a50000] my-4 shadow-[0_0_15px_#a50000,0_0_6px_#a50000] rounded-full" />
+      <div className="w-full max-w-[220px] md:max-w-[280px] h-[3px] bg-[#ff2a2a] my-4 shadow-[0_0_15px_#ff2a2a,0_0_6px_#ff2a2a] rounded-full" />
 
       {/* Motions by MOB secondary brand text (Luxury wide-spaced serif) */}
       <span 
-        className="outfit-editorial text-[10px] md:text-xs text-gray-400 font-light tracking-[0.45em] pl-[0.45em]"
+        className="outfit-editorial text-[11px] md:text-xs text-gray-400 font-light tracking-[0.2em] pl-[0.45em]"
       >
         MOTIONS BY MOB
       </span>

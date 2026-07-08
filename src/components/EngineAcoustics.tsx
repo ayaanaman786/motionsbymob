@@ -42,7 +42,7 @@ export default function EngineAcoustics() {
       type2: 'triangle',
       filterFreq: 85,
       detune: 0.6,
-      accentColor: '#a50000'
+      accentColor: '#ff2a2a'
     },
     {
       id: 'v10',
@@ -275,21 +275,21 @@ export default function EngineAcoustics() {
 
   return (
     <section id="exhaust-console" className="bg-[#030303] py-24 md:py-32 px-4 md:px-8 relative border-t border-white/5 overflow-hidden">
-      <div className="absolute bottom-0 inset-x-0 h-96 bg-gradient-to-t from-[#a50000]/3 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-96 bg-gradient-to-t from-[#ff2a2a]/3 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
         <div className="border-b border-white/10 pb-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="outfit-editorial text-[10px] text-[#a50000] mb-2 uppercase">
+            <div className="outfit-editorial text-[11px] text-[#ff2a2a] mb-2 uppercase">
               [ ARCHIVE_03 // ACOUSTICS CENTER ]
             </div>
             <h2 className="brutal text-3xl md:text-5xl tracking-tighter text-white uppercase font-black">
-              Exhaust Console<span className="text-[#a50000]">.</span>
+              Exhaust Console<span className="text-[#ff2a2a]">.</span>
             </h2>
           </div>
-          <p className="outfit-editorial text-[10px] sm:text-xs text-zinc-400 uppercase leading-relaxed max-w-sm">
+          <p className="outfit-editorial text-[11px] sm:text-xs text-zinc-300 uppercase leading-relaxed max-w-sm">
             Engage real-time synthesized engine harmonics. Adjust the throttle dial and shift through the gearbox to feel the raw frequencies.
           </p>
         </div>
@@ -301,7 +301,7 @@ export default function EngineAcoustics() {
           <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
             <div className="space-y-6">
               <div>
-                <span className="outfit-editorial text-[8px] text-zinc-500 uppercase block tracking-wider mb-1">
+                <span className="outfit-editorial text-[11px] text-zinc-400 uppercase block tracking-wider mb-1">
                   MOTOR ARCHITECTURE
                 </span>
                 <h3 className="brutal text-xl text-white font-black uppercase">
@@ -320,8 +320,8 @@ export default function EngineAcoustics() {
                     }}
                     className={`w-full text-left p-4 border transition-all duration-300 relative rounded-sm ${
                       activeEngine === eng.id
-                        ? 'bg-zinc-950/80 text-white shadow-[0_0_20px_rgba(0,0,0,0.8)]'
-                        : 'bg-black border-white/5 text-zinc-500 hover:text-zinc-300 hover:border-white/15'
+                        ? 'bg-zinc-900/90 text-white shadow-[0_0_20px_rgba(0,0,0,0.8)]'
+                        : 'bg-black border-white/5 text-zinc-400 hover:text-zinc-200 hover:border-white/15'
                     } ${
                       isPlaying && activeEngine !== eng.id ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'
                     }`}
@@ -330,7 +330,7 @@ export default function EngineAcoustics() {
                     }}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="outfit-editorial text-[10px] font-bold uppercase tracking-wider">
+                      <span className="outfit-editorial text-[11px] font-bold uppercase tracking-wider">
                         {eng.name}
                       </span>
                       {activeEngine === eng.id && (
@@ -353,14 +353,14 @@ export default function EngineAcoustics() {
               {isPlaying ? (
                 <button
                   onClick={stopSynthesis}
-                  className="w-full py-4 bg-[#a50000] hover:bg-[#c60000] text-white rounded-sm outfit-editorial text-[10px] uppercase font-bold tracking-widest transition-all duration-300 shadow-[0_0_15px_rgba(165,0,0,0.3)] cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-[#ff2a2a] hover:bg-[#ff4d4d] text-white rounded-sm outfit-editorial text-[11px] uppercase font-bold tracking-widest transition-all duration-300 shadow-[0_0_15px_rgba(255,42,42,0.3)] cursor-pointer flex items-center justify-center gap-2"
                 >
                   <VolumeX className="w-4 h-4 animate-spin" /> DISENGAGE SYSTEM
                 </button>
               ) : (
                 <button
                   onClick={startSynthesis}
-                  className="w-full py-4 bg-white hover:bg-zinc-200 text-black rounded-sm outfit-editorial text-[10px] uppercase font-bold tracking-widest transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-white hover:bg-zinc-200 text-black rounded-sm outfit-editorial text-[11px] uppercase font-bold tracking-widest transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
                 >
                   <Volume2 className="w-4 h-4" /> IGNITION SYSTEM [START]
                 </button>
@@ -380,11 +380,11 @@ export default function EngineAcoustics() {
 
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="outfit-editorial text-[8px] text-zinc-400 uppercase tracking-widest flex items-center gap-1.5">
+                <span className="outfit-editorial text-[11px] text-zinc-300 uppercase tracking-widest flex items-center gap-1.5">
                   <Activity className="w-3.5 h-3.5" style={{ color: currentEngine.accentColor }} />
                   ACOUSTIC SPECTRUM WAVEFORM
                 </span>
-                <span className="outfit-editorial text-[7px] text-zinc-500 font-mono">
+                <span className="outfit-editorial text-[11px] text-zinc-400 font-mono">
                   ACTIVE_LINK_OK
                 </span>
               </div>
@@ -393,7 +393,7 @@ export default function EngineAcoustics() {
               <div className="h-44 w-full bg-[#050505] rounded-sm overflow-hidden relative border border-white/5">
                 {!isPlaying && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 opacity-55">
-                    <span className="outfit-editorial text-[8px] text-zinc-600 tracking-widest uppercase">
+                    <span className="outfit-editorial text-[11px] text-zinc-600 tracking-widest uppercase">
                       SYSTEM DISENGAGED // WAVEFORM MUTED
                     </span>
                     <span className="outfit-editorial text-[6px] text-zinc-700 uppercase">
@@ -412,7 +412,7 @@ export default function EngineAcoustics() {
 
             {/* Gearbox Panel */}
             <div className="mt-6 space-y-4">
-              <span className="outfit-editorial text-[8px] text-zinc-500 uppercase block tracking-wider">
+              <span className="outfit-editorial text-[11px] text-zinc-400 uppercase block tracking-wider">
                 TRANSMISSION GEAR_BAY
               </span>
               
@@ -420,7 +420,7 @@ export default function EngineAcoustics() {
                 {[1, 2, 3, 4, 5, 6].map((g) => (
                   <div
                     key={g}
-                    className={`py-2 text-center rounded-sm border transition-all duration-300 font-mono text-[10px] ${
+                    className={`py-2 text-center rounded-sm border transition-all duration-300 font-mono text-[11px] ${
                       activeGear === g
                         ? 'bg-[#141414] border-white text-white font-black'
                         : 'bg-black border-white/5 text-zinc-600'
@@ -435,14 +435,14 @@ export default function EngineAcoustics() {
                 <button
                   disabled={!isPlaying || isShifting || activeGear >= 6}
                   onClick={triggerGearShift}
-                  className="flex-1 py-3 border border-white/10 hover:border-white/30 hover:bg-white/5 text-white outfit-editorial text-[9px] uppercase font-bold tracking-widest transition-all duration-300 rounded-sm cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 py-3 border border-white/10 hover:border-white/30 hover:bg-white/10 text-white outfit-editorial text-[11px] uppercase font-bold tracking-widest transition-all duration-300 rounded-sm cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isShifting ? 'SHIFTING...' : 'DCT UPSHIFT [GEAR +]'}
                 </button>
                 <button
                   disabled={!isPlaying || activeGear <= 1}
                   onClick={() => setActiveGear(prev => Math.max(1, prev - 1))}
-                  className="py-3 px-4 border border-white/10 hover:border-white/30 text-zinc-400 hover:text-white outfit-editorial text-[9px] uppercase transition-all duration-300 rounded-sm cursor-pointer disabled:opacity-30"
+                  className="py-3 px-4 border border-white/10 hover:border-white/30 hover:bg-white/5 text-zinc-300 hover:text-white outfit-editorial text-[11px] uppercase transition-all duration-300 rounded-sm cursor-pointer disabled:opacity-30"
                 >
                   DOWNSHIFT
                 </button>
@@ -452,11 +452,11 @@ export default function EngineAcoustics() {
           </div>
 
           {/* Bento Right: Throttle Controller & Specs */}
-          <div className="lg:col-span-3 bg-[#0a0a0a]/60 border border-white/10 p-6 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-3 bg-[#171717]/60 border border-white/20 p-6 flex flex-col justify-between space-y-6">
             
             <div className="space-y-6">
               <div>
-                <span className="outfit-editorial text-[8px] text-zinc-500 uppercase block tracking-wider mb-1">
+                <span className="outfit-editorial text-[11px] text-zinc-400 uppercase block tracking-wider mb-1">
                   THROTTLE COMMAND
                 </span>
                 <h4 className="brutal text-lg text-white font-black tracking-tight uppercase">
@@ -465,12 +465,12 @@ export default function EngineAcoustics() {
               </div>
 
               {/* Throttle Slider dial */}
-              <div className="space-y-4 bg-black/60 border border-white/5 p-4 rounded-sm">
+              <div className="space-y-4 bg-black/60 border border-white/10 p-4 rounded-sm">
                 <div className="flex items-center justify-between">
-                  <span className="outfit-editorial text-[7px] text-zinc-400 uppercase tracking-widest">
+                  <span className="outfit-editorial text-[11px] text-zinc-300 uppercase tracking-widest">
                     THROTTLE POSITION
                   </span>
-                  <span className="outfit-editorial text-[8px] font-mono text-white font-black">
+                  <span className="outfit-editorial text-[11px] font-mono text-white font-black">
                     {throttle}%
                   </span>
                 </div>
@@ -511,7 +511,7 @@ export default function EngineAcoustics() {
                     if (isPlaying) setThrottle(0);
                   }}
                   disabled={!isPlaying}
-                  className="w-full py-2 bg-zinc-900 hover:bg-zinc-800 active:bg-white active:text-black border border-white/5 text-zinc-300 rounded-sm outfit-editorial text-[8px] uppercase font-bold tracking-widest transition-colors duration-150 disabled:opacity-30"
+                  className="w-full py-2 bg-zinc-900 hover:bg-zinc-800 active:bg-white active:text-black border border-white/5 text-zinc-300 rounded-sm outfit-editorial text-[11px] uppercase font-bold tracking-widest transition-colors duration-150 disabled:opacity-30"
                 >
                   TAP THROTTLE PEDAL [REV]
                 </button>
@@ -519,10 +519,10 @@ export default function EngineAcoustics() {
 
               {/* Technical Acoustic readout parameters */}
               <div className="space-y-3 pt-2">
-                <span className="outfit-editorial text-[8px] text-zinc-500 uppercase block tracking-wider">
+                <span className="outfit-editorial text-[11px] text-zinc-400 uppercase block tracking-wider">
                   REAL-TIME MATRIX ENGINE
                 </span>
-                <div className="space-y-2 outfit-editorial text-[9px] text-zinc-400">
+                <div className="space-y-2 outfit-editorial text-[11px] text-zinc-300">
                   <div className="flex justify-between">
                     <span>SYNTHESIS RATE:</span>
                     <span className="text-white font-bold font-mono">48.0 KHZ</span>
@@ -540,7 +540,7 @@ export default function EngineAcoustics() {
             </div>
 
             {/* Micro verification badge */}
-            <div className="flex items-center gap-2 border-t border-white/10 pt-4 text-[8px] outfit-editorial text-zinc-500 uppercase">
+            <div className="flex items-center gap-2 border-t border-white/10 pt-4 text-[11px] outfit-editorial text-zinc-400 uppercase">
               <ShieldCheck className="w-3.5 h-3.5 text-zinc-600" />
               <span>STEREO SYNTHESIS APPROVED</span>
             </div>

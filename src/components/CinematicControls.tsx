@@ -188,8 +188,8 @@ export default function CinematicControls({
       ctx.stroke();
 
       // Draw active electrical/motor wave
-      ctx.strokeStyle = '#a50000';
-      ctx.shadowColor = '#a50000';
+      ctx.strokeStyle = '#ff2a2a';
+      ctx.shadowColor = '#ff2a2a';
       ctx.shadowBlur = 4;
       ctx.lineWidth = 1.5;
 
@@ -236,9 +236,9 @@ export default function CinematicControls({
     <div className="fixed bottom-6 right-6 z-50 select-none">
       {/* Mini introductory floating badge */}
       {showTooltip && !isOpen && (
-        <div className="absolute bottom-16 right-0 w-64 bg-zinc-950 border border-white/10 p-3 shadow-2xl rounded-sm transition-all duration-300">
+        <div className="absolute bottom-16 right-0 w-64 bg-zinc-900/90 border border-white/20 p-3 shadow-2xl rounded-sm transition-all duration-300">
           <div className="flex items-start justify-between">
-            <span className="outfit-editorial text-[8px] text-[#a50000] tracking-widest uppercase">
+            <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest uppercase">
               [ TECHNICAL PORTFOLIO SUITE ]
             </span>
             <button 
@@ -251,10 +251,10 @@ export default function CinematicControls({
               <X className="w-3 h-3" />
             </button>
           </div>
-          <p className="outfit-editorial text-[9px] text-zinc-300 uppercase leading-relaxed mt-1.5">
+          <p className="outfit-editorial text-[11px] text-zinc-300 uppercase leading-relaxed mt-1.5">
             TUNE ASPECT RATIOS, SIMULATE CAMERA LUT COLOUR WORKFLOWS, AND ENGAGE THE ENGINE drone.
           </p>
-          <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-zinc-950 border-r border-b border-white/10 rotate-45" />
+          <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-zinc-900/90 border-r border-b border-white/10 rotate-45" />
         </div>
       )}
 
@@ -266,8 +266,8 @@ export default function CinematicControls({
         }}
         className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border ${
           isOpen
-            ? 'bg-[#a50000] border-[#a50000] text-white rotate-90 shadow-[0_0_20px_#a50000]'
-            : 'bg-zinc-950/90 hover:bg-black border-white/15 text-zinc-300 hover:text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)]'
+            ? 'bg-[#ff2a2a] border-[#ff2a2a] text-white rotate-90 shadow-[0_0_20px_#ff2a2a]'
+            : 'bg-zinc-900/90 hover:bg-black border-white/15 text-zinc-300 hover:text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)]'
         }`}
       >
         <Sliders className="w-5 h-5" />
@@ -275,24 +275,24 @@ export default function CinematicControls({
 
       {/* Expanded Tuning deck */}
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-80 bg-[#050505]/95 border border-white/10 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.9)] backdrop-blur-md rounded-sm space-y-6">
+        <div className="absolute bottom-16 right-0 w-80 bg-[#171717]/95 border border-white/20 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.9)] backdrop-blur-md rounded-sm space-y-6">
           
           {/* Header indicator */}
           <div className="flex items-center justify-between border-b border-white/10 pb-3">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#a50000] animate-pulse" />
-              <span className="outfit-editorial text-[9px] text-white tracking-widest uppercase font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#ff2a2a] animate-pulse" />
+              <span className="outfit-editorial text-[11px] text-white tracking-widest uppercase font-bold">
                 CINEMATIC TUNING DECK
               </span>
             </div>
-            <span className="outfit-editorial text-[7px] text-zinc-500 uppercase">
+            <span className="outfit-editorial text-[7px] text-zinc-400 uppercase">
               VER_2.36
             </span>
           </div>
 
           {/* Module 1: LUT Color grading filters */}
           <div className="space-y-2">
-            <label className="outfit-editorial text-[8px] text-zinc-500 uppercase block">
+            <label className="outfit-editorial text-[11px] text-zinc-400 uppercase block">
               A // LUT COLOR_GRADE FILTER
             </label>
             <div className="grid grid-cols-2 gap-1.5">
@@ -302,12 +302,12 @@ export default function CinematicControls({
                   onClick={() => setLutGrade(lut.id)}
                   className={`py-1.5 px-3 text-left border rounded-sm transition-all duration-200 cursor-pointer ${
                     lutGrade === lut.id
-                      ? 'bg-[#a50000]/10 border-[#a50000] text-white'
-                      : 'bg-black border-white/5 text-zinc-500 hover:text-zinc-300 hover:border-white/15'
+                      ? 'bg-[#ff2a2a]/10 border-[#ff2a2a] text-white'
+                      : 'bg-black border-white/5 text-zinc-400 hover:text-zinc-200 hover:border-white/15'
                   }`}
                 >
-                  <div className="outfit-editorial text-[8px] font-bold tracking-wider">{lut.name}</div>
-                  <div className="outfit-editorial text-[6px] text-zinc-600 mt-0.5">{lut.desc}</div>
+                  <div className="outfit-editorial text-[11px] font-bold tracking-wider">{lut.name}</div>
+                  <div className="outfit-editorial text-[11px] text-zinc-400 mt-0.5">{lut.desc}</div>
                 </button>
               ))}
             </div>
@@ -315,7 +315,7 @@ export default function CinematicControls({
 
           {/* Module 2: Aspect Ratios framing overlay */}
           <div className="space-y-2">
-            <label className="outfit-editorial text-[8px] text-zinc-500 uppercase block">
+            <label className="outfit-editorial text-[11px] text-zinc-400 uppercase block">
               B // ASPECT RATIO BOUNDS
             </label>
             <div className="grid grid-cols-2 gap-1.5">
@@ -325,12 +325,12 @@ export default function CinematicControls({
                   onClick={() => setAspectRatio(ratio.id)}
                   className={`py-1.5 px-3 text-left border rounded-sm transition-all duration-200 cursor-pointer ${
                     aspectRatio === ratio.id
-                      ? 'bg-[#a50000]/10 border-[#a50000] text-white'
-                      : 'bg-black border-white/5 text-zinc-500 hover:text-zinc-300 hover:border-white/15'
+                      ? 'bg-[#ff2a2a]/10 border-[#ff2a2a] text-white'
+                      : 'bg-black border-white/5 text-zinc-400 hover:text-zinc-200 hover:border-white/15'
                   }`}
                 >
-                  <div className="outfit-editorial text-[8px] font-bold tracking-wider">{ratio.name}</div>
-                  <div className="outfit-editorial text-[6px] text-zinc-600 mt-0.5">{ratio.desc}</div>
+                  <div className="outfit-editorial text-[11px] font-bold tracking-wider">{ratio.name}</div>
+                  <div className="outfit-editorial text-[11px] text-zinc-400 mt-0.5">{ratio.desc}</div>
                 </button>
               ))}
             </div>
@@ -339,16 +339,16 @@ export default function CinematicControls({
           {/* Module 3: V8 Engine sound generator */}
           <div className="space-y-3 bg-black/60 border border-white/5 p-3 rounded-sm">
             <div className="flex items-center justify-between">
-              <span className="outfit-editorial text-[7px] text-zinc-400 uppercase tracking-widest flex items-center gap-1.5">
-                <Activity className="w-3 h-3 text-[#a50000]" />
+              <span className="outfit-editorial text-[11px] text-zinc-300 uppercase tracking-widest flex items-center gap-1.5">
+                <Activity className="w-3 h-3 text-[#ff2a2a]" />
                 C // V8 ENGINE DRONE
               </span>
               <button
                 onClick={toggleAudio}
-                className={`py-1 px-2 border rounded-sm text-[7px] outfit-editorial tracking-widest uppercase transition-all duration-200 cursor-pointer flex items-center gap-1 ${
+                className={`py-1 px-2 border rounded-sm text-[11px] outfit-editorial tracking-widest uppercase transition-all duration-200 cursor-pointer flex items-center gap-1 ${
                   isAudioPlaying
-                    ? 'bg-[#a50000] border-[#a50000] text-white animate-pulse'
-                    : 'bg-zinc-900 border-white/10 text-zinc-400 hover:text-white'
+                    ? 'bg-[#ff2a2a] border-[#ff2a2a] text-white animate-pulse'
+                    : 'bg-zinc-900 border-white/10 text-zinc-300 hover:text-white'
                 }`}
               >
                 {isAudioPlaying ? (
@@ -364,9 +364,9 @@ export default function CinematicControls({
             </div>
 
             {/* Oscilloscope canvas display */}
-            <div className="h-10 w-full bg-zinc-950/80 rounded-sm overflow-hidden relative border border-white/5">
+            <div className="h-10 w-full bg-zinc-900/80 rounded-sm overflow-hidden relative border border-white/5">
               {!isAudioPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center outfit-editorial text-[7px] text-zinc-700 tracking-widest">
+                <div className="absolute inset-0 flex items-center justify-center outfit-editorial text-[11px] text-zinc-400 tracking-widest">
                   OSCILLOSCOPE_OFFLINE
                 </div>
               )}
@@ -380,7 +380,7 @@ export default function CinematicControls({
 
             {/* Volume control */}
             <div className="flex items-center gap-3">
-              <span className="outfit-editorial text-[6px] text-zinc-600 uppercase">VOL</span>
+              <span className="outfit-editorial text-[11px] text-zinc-400 uppercase">VOL</span>
               <input
                 type="range"
                 min="0"
@@ -389,9 +389,9 @@ export default function CinematicControls({
                 value={volume}
                 onChange={handleVolumeChange}
                 disabled={!isAudioPlaying}
-                className="flex-1 accent-[#a50000] h-[2px] bg-zinc-800 rounded-lg appearance-none cursor-pointer disabled:opacity-30"
+                className="flex-1 accent-[#ff2a2a] h-[2px] bg-zinc-800 rounded-lg appearance-none cursor-pointer disabled:opacity-30"
               />
-              <span className="outfit-editorial text-[7px] text-zinc-500 font-bold w-6 text-right">
+              <span className="outfit-editorial text-[11px] text-zinc-300 font-bold w-6 text-right">
                 {Math.round(volume * 100)}%
               </span>
             </div>

@@ -3,9 +3,9 @@
 @theme {
   --font-display: "Bebas Neue", sans-serif;
   --font-sans: "Outfit", "Helvetica Neue", sans-serif;
-  --color-brand-red: #a50000;
-  --color-dark-gray: #090909;
-  --color-medium-gray: #141414;
+  --color-brand-red: #ff2a2a;
+  --color-dark-gray: #0a0a0a;
+  --color-medium-gray: #171717;
 }
 
 .brutal {
@@ -16,8 +16,8 @@
 
 .outfit-editorial {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 300;
-  letter-spacing: 0.32em;
+  font-weight: 400;
+  letter-spacing: 0.2em;
 }
 
 /* Custom Scrollbar */
@@ -72,7 +72,7 @@
   z-index: 10;
   background-size: 100% 4px, 6px 100%;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.15;
 }
 
 /* Subtle Drift animation */

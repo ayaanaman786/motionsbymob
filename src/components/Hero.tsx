@@ -34,13 +34,13 @@ export default function Hero() {
         />
         
         {/* Subtle horizontal red laser lens flare in background */}
-        <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[2px] bg-[#a50000] opacity-40 z-10 blur-[1px]">
-          <div className="absolute inset-0 w-full h-[6px] -top-[2px] bg-[#a50000] blur-md opacity-60" />
+        <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[2px] bg-[#ff2a2a] opacity-40 z-10 blur-[1px]">
+          <div className="absolute inset-0 w-full h-[6px] -top-[2px] bg-[#ff2a2a] blur-md opacity-60" />
         </div>
       </div>
 
       {/* Cinematic Top Letterbox */}
-      <div className="w-full h-8 md:h-12 bg-black z-20 border-b border-white/10 flex items-center justify-between px-4 md:px-8 outfit-editorial text-[10px] text-gray-500 uppercase">
+      <div className="w-full h-8 md:h-12 bg-black z-20 border-b border-white/10 flex items-center justify-between px-4 md:px-8 outfit-editorial text-[11px] text-gray-400 uppercase">
         <div>SYS_ONLINE // MOTIONS BY MOB</div>
         <div className="hidden sm:block text-right">OEM+ AUTOMOTIVE VIDEOGRAPHY</div>
         <div className="block sm:hidden text-right">M.O.B. REELS</div>
@@ -68,10 +68,10 @@ export default function Hero() {
         {/* Left Side: Video Loop Indicator */}
         <div className="flex items-center gap-3">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#a50000] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#a50000]"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff2a2a] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff2a2a]"></span>
           </span>
-          <span className="outfit-editorial text-[9px] text-gray-400 uppercase">
+          <span className="outfit-editorial text-[11px] text-gray-300 uppercase">
             LIVE FEED // ACTIVE PREVIEW
           </span>
         </div>
@@ -79,14 +79,14 @@ export default function Hero() {
         {/* Center: Scroll Prompt */}
         <button 
           onClick={() => handleScrollTo('manifesto')}
-          className="flex flex-col items-center text-gray-500 hover:text-[#a50000] transition-colors duration-300 cursor-pointer pl-6 sm:pl-0"
+          className="flex flex-col items-center text-gray-400 hover:text-[#ff2a2a] transition-colors duration-300 cursor-pointer pl-6 sm:pl-0"
         >
-          <span className="outfit-editorial text-[8px] uppercase mb-0.5">SCROLL TO ENTER</span>
+          <span className="outfit-editorial text-[11px] uppercase mb-0.5">SCROLL TO ENTER</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </button>
 
         {/* Right Side: Aspect Ratio Badge */}
-        <div className="outfit-editorial text-[9px] text-gray-500">
+        <div className="outfit-editorial text-[11px] text-gray-400">
           2.39:1 CINEMATIC FRAME
         </div>
       </div>

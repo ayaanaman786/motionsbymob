@@ -70,7 +70,7 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group bg-[#090909] border border-white/10 hover:border-[#a50000]/40 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col relative"
+      className="group bg-[#090909] border border-white/10 hover:border-[#ff2a2a]/40 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col relative"
     >
       {/* Outer visual bounding box */}
       <div className="aspect-[16/10] overflow-hidden relative bg-black">
@@ -97,16 +97,16 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
 
         {/* Micro trigger overlay */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-          <div className="w-12 h-12 bg-black/80 border border-[#a50000] rounded-full flex items-center justify-center text-white shadow-[0_0_15px_#a50000]">
+          <div className="w-12 h-12 bg-black/80 border border-[#ff2a2a] rounded-full flex items-center justify-center text-white shadow-[0_0_15px_#ff2a2a]">
             {item.videoUrl ? <Play className="w-5 h-5 fill-white ml-0.5" /> : <Maximize2 className="w-5 h-5 text-white" />}
           </div>
         </div>
 
         {/* Decorative Tech Corners */}
-        <div className="absolute top-4 left-4 outfit-editorial text-[8px] text-zinc-500 z-10 opacity-80 group-hover:opacity-0 transition-opacity duration-300">
+        <div className="absolute top-4 left-4 outfit-editorial text-[11px] text-zinc-400 z-10 opacity-80 group-hover:opacity-0 transition-opacity duration-300">
           [REEL_0{item.id.slice(-1)}]
         </div>
-        <div className="absolute top-4 right-4 bg-black/60 px-2 py-0.5 border border-white/10 outfit-editorial text-[8px] text-zinc-300 uppercase z-10">
+        <div className="absolute top-4 right-4 bg-black/60 px-2 py-0.5 border border-white/10 outfit-editorial text-[11px] text-zinc-300 uppercase z-10">
           {item.category}
         </div>
 
@@ -120,7 +120,7 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
               transform: isHovered ? 'translateY(5px)' : 'translateY(0)'
             }}
           >
-            <span className={`w-1 h-1 rounded-full ${activeFocus > 80 ? 'bg-green-500' : 'bg-[#a50000] animate-pulse'}`} />
+            <span className={`w-1 h-1 rounded-full ${activeFocus > 80 ? 'bg-green-500' : 'bg-[#ff2a2a] animate-pulse'}`} />
             FOCUS: {activeFocus}%
           </div>
           <div 
@@ -141,11 +141,11 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
               transform: isHovered ? 'translateY(0)' : 'translateY(-5px)'
             }}
           >
-            <div className="bg-black/80 border border-[#a50000]/30 px-2 py-0.5 rounded-sm outfit-editorial text-[7px] text-white font-mono flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#a50000]" />
+            <div className="bg-black/80 border border-[#ff2a2a]/30 px-2 py-0.5 rounded-sm outfit-editorial text-[7px] text-white font-mono flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a]" />
               OPTICS LOCK // REC
             </div>
-            <div className="bg-black/80 border border-[#a50000]/30 px-2 py-0.5 rounded-sm outfit-editorial text-[7px] text-white font-mono">
+            <div className="bg-black/80 border border-[#ff2a2a]/30 px-2 py-0.5 rounded-sm outfit-editorial text-[7px] text-white font-mono">
               F/1.4 PIN-SHARP
             </div>
           </div>
@@ -155,20 +155,20 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
       {/* Text Meta Fields */}
       <div className="p-6 flex-grow flex flex-col justify-between border-t border-white/10 relative bg-black/20">
         {/* Custom left red glow dot */}
-        <div className="absolute top-0 left-6 w-8 h-[2px] bg-[#a50000] transform -translate-y-1/2 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        <div className="absolute top-0 left-6 w-8 h-[2px] bg-[#ff2a2a] transform -translate-y-1/2 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
         <div>
           <div className="flex items-center justify-between mb-2">
-            <span className="outfit-editorial text-[9px] text-zinc-400 uppercase">
+            <span className="outfit-editorial text-[11px] text-zinc-400 uppercase">
               {item.carModel}
             </span>
-            <span className="outfit-editorial text-[9px] text-[#a50000] font-semibold">
+            <span className="outfit-editorial text-[11px] text-[#ff2a2a] font-semibold">
               {item.year}
             </span>
           </div>
 
           <h3 
-            className="brutal text-lg tracking-tight text-white group-hover:text-[#a50000] transition-colors duration-300 uppercase"
+            className="brutal text-lg tracking-tight text-white group-hover:text-[#ff2a2a] transition-colors duration-300 uppercase"
           >
             {item.title}
           </h3>
@@ -180,7 +180,7 @@ export default function GalleryCard({ item, onClick }: GalleryCardProps) {
           </p>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[8px] outfit-editorial text-zinc-500 uppercase">
+        <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] outfit-editorial text-zinc-400 uppercase">
           <span>CLIP_ID: {item.id}</span>
           <span className="text-zinc-300 group-hover:text-white transition-colors duration-300 flex items-center gap-1">
             INSPECT ARCHIVE <Maximize2 className="w-2.5 h-2.5" />

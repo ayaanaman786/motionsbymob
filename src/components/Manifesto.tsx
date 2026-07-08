@@ -6,10 +6,10 @@ export default function Manifesto() {
   // Reusable icon mapping to give technical visual weight to manifesto sections
   const getSectionIcon = (index: number) => {
     switch (index) {
-      case 0: return <Scale className="w-5 h-5 text-[#a50000]" />;
-      case 1: return <Sparkles className="w-5 h-5 text-[#a50000]" />;
-      case 2: return <ShieldCheck className="w-5 h-5 text-[#a50000]" />;
-      case 3: return <Eye className="w-5 h-5 text-[#a50000]" />;
+      case 0: return <Scale className="w-5 h-5 text-[#ff2a2a]" />;
+      case 1: return <Sparkles className="w-5 h-5 text-[#ff2a2a]" />;
+      case 2: return <ShieldCheck className="w-5 h-5 text-[#ff2a2a]" />;
+      case 3: return <Eye className="w-5 h-5 text-[#ff2a2a]" />;
       default: return null;
     }
   };
@@ -17,20 +17,20 @@ export default function Manifesto() {
   return (
     <section id="manifesto" className="bg-black py-24 md:py-32 px-4 md:px-8 relative overflow-hidden">
       {/* Absolute ambient lights */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#a50000]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/2 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#ff2a2a]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* Technical Section Header */}
         <div className="border-b border-white/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="outfit-editorial text-[10px] text-[#a50000] mb-2 uppercase">
+            <div className="outfit-editorial text-[11px] text-[#ff2a2a] mb-2 uppercase">
               [ EST_01 // THE MANIFESTO ]
             </div>
             <h2 
               className="brutal text-3xl md:text-5xl tracking-tighter text-white uppercase font-black"
             >
-              Quiet Authority<span className="text-[#a50000]">.</span>
+              Quiet Authority<span className="text-[#ff2a2a]">.</span>
             </h2>
           </div>
           <p 
@@ -50,7 +50,7 @@ export default function Manifesto() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black z-10" />
             
             {/* Cinematic Frame Bars */}
-            <div className="absolute top-0 inset-x-0 h-6 bg-black z-20 border-b border-white/10 flex items-center px-4 text-[8px] tracking-[0.3em] text-gray-500">
+            <div className="absolute top-0 inset-x-0 h-6 bg-[#0a0a0a]/80 backdrop-blur-md z-20 border-b border-white/10 flex items-center px-4 text-[11px] tracking-[0.2em] text-gray-400">
               FRAME_REF_MERC_ROSE
             </div>
             
@@ -61,13 +61,13 @@ export default function Manifesto() {
               referrerPolicy="no-referrer"
             />
 
-            <div className="absolute bottom-0 inset-x-0 h-10 bg-black z-20 border-t border-white/10 flex items-center justify-between px-4 text-[8px] tracking-[0.3em] text-gray-500">
+            <div className="absolute bottom-0 inset-x-0 h-10 bg-[#0a0a0a]/80 backdrop-blur-md z-20 border-t border-white/10 flex items-center justify-between px-4 text-[11px] tracking-[0.2em] text-gray-400">
               <span>COORD_LOCK // SECURE</span>
               <span>OEM+ ALIGNMENT</span>
             </div>
             
             {/* Glowing Red laser beam cutting through image container */}
-            <div className="absolute top-1/2 left-0 w-1 h-20 bg-[#a50000] z-20 shadow-[0_0_15px_#a50000]" />
+            <div className="absolute top-1/2 left-0 w-1 h-20 bg-[#ff2a2a] z-20 shadow-[0_0_15px_#ff2a2a]" />
           </div>
 
           {/* Right Block: Manifesto Statements */}
@@ -76,22 +76,22 @@ export default function Manifesto() {
               {MANIFESTO_PARAGRAPHS.map((item, index) => (
                 <div 
                   key={index}
-                  className="flex flex-col justify-between p-6 md:p-8 bg-zinc-950/45 border border-white/10 hover:border-white/20 transition-all duration-300 relative group"
+                  className="flex flex-col justify-between p-6 md:p-8 bg-zinc-900/60 border border-white/20 hover:border-white/30 transition-all duration-300 relative group shadow-lg"
                 >
                   {/* Subtle red indicator on hover */}
-                  <span className="absolute top-0 left-0 w-[1px] h-0 bg-[#a50000] group-hover:h-full transition-all duration-500" />
+                  <span className="absolute top-0 left-0 w-[2px] h-0 bg-[#ff2a2a] group-hover:h-full transition-all duration-500" />
                   
                   <div>
                     {/* Corner technical metrics */}
                     <div className="flex items-center justify-between mb-6">
-                      <span className="outfit-editorial text-[9px] text-zinc-500">
+                      <span className="outfit-editorial text-[11px] text-zinc-400">
                         SEC_0{index + 1} // COMPLIANCE
                       </span>
                       {getSectionIcon(index)}
                     </div>
 
                     <h3 
-                      className="brutal text-md md:text-lg tracking-tight text-[#a50000] mb-4 uppercase leading-relaxed transition-colors duration-300 group-hover:text-white"
+                      className="brutal text-md md:text-lg tracking-tight text-[#ff2a2a] mb-4 uppercase leading-relaxed transition-colors duration-300 group-hover:text-white"
                     >
                       {item.highlight}
                     </h3>
@@ -103,7 +103,7 @@ export default function Manifesto() {
                     </p>
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-white/10 flex justify-between items-center text-[8px] outfit-editorial text-zinc-500">
+                  <div className="mt-8 pt-4 border-t border-white/20 flex justify-between items-center text-[11px] outfit-editorial text-zinc-400">
                     <span>STATUS: COMMANDING</span>
                     <span>WEIGHT: DENSE</span>
                   </div>
@@ -117,7 +117,7 @@ export default function Manifesto() {
                 className="brutal text-xl sm:text-2xl md:text-3xl tracking-tighter text-white text-center sm:text-left leading-relaxed pl-1"
               >
                 "WE DO NOT COMPETE FOR ATTENTION.<br />
-                <span className="text-[#a50000] shadow-[0_0_20px_rgba(165,0,0,0.2)]">WE SIMPLY COMMAND IT.</span>"
+                <span className="text-[#ff2a2a] shadow-[0_0_20px_rgba(255,42,42,0.2)]">WE SIMPLY COMMAND IT.</span>"
               </p>
             </div>
           </div>

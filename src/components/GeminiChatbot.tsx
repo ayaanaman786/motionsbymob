@@ -100,9 +100,9 @@ export default function GeminiChatbot() {
       
       {/* Floating Notification Badge */}
       {showNotification && !isOpen && (
-        <div className="absolute bottom-16 left-0 w-64 bg-zinc-950 border border-white/10 p-3 shadow-2xl rounded-sm transition-all duration-300">
+        <div className="absolute bottom-16 left-0 w-64 bg-zinc-900/90 border border-white/20 p-3 shadow-2xl rounded-sm transition-all duration-300">
           <div className="flex items-start justify-between">
-            <span className="outfit-editorial text-[8px] text-[#a50000] tracking-widest uppercase font-bold">
+            <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest uppercase font-bold">
               [ CREATIVE CONSULTATION ]
             </span>
             <button 
@@ -115,10 +115,10 @@ export default function GeminiChatbot() {
               <X className="w-3 h-3" />
             </button>
           </div>
-          <p className="outfit-editorial text-[9px] text-zinc-300 uppercase leading-relaxed mt-1.5">
+          <p className="outfit-editorial text-[11px] text-zinc-300 uppercase leading-relaxed mt-1.5">
             Discuss production framing, cinematic lenses, or choreography with our lead producer.
           </p>
-          <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-zinc-950 border-l border-b border-white/10 rotate-45" />
+          <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-zinc-900/90 border-l border-b border-white/10 rotate-45" />
         </div>
       )}
 
@@ -130,13 +130,13 @@ export default function GeminiChatbot() {
         }}
         className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer border ${
           isOpen
-            ? 'bg-[#a50000] border-[#a50000] text-white rotate-90 shadow-[0_0_20px_#a50000]'
-            : 'bg-zinc-950/90 hover:bg-black border-white/15 text-zinc-300 hover:text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)]'
+            ? 'bg-[#ff2a2a] border-[#ff2a2a] text-white rotate-90 shadow-[0_0_20px_#ff2a2a]'
+            : 'bg-zinc-900/90 hover:bg-black border-white/15 text-zinc-300 hover:text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)]'
         }`}
       >
         {isOpen ? <X className="w-5 h-5" /> : <MessageSquare className="w-5 h-5" />}
         {!isOpen && (
-          <span className="absolute top-0 right-0 w-3 h-3 bg-[#a50000] border-2 border-black rounded-full animate-pulse" />
+          <span className="absolute top-0 right-0 w-3 h-3 bg-[#ff2a2a] border-2 border-black rounded-full animate-pulse" />
         )}
       </button>
 
@@ -149,19 +149,19 @@ export default function GeminiChatbot() {
           {/* Header */}
           <div className="flex items-center justify-between border-b border-white/10 p-4 bg-black/40">
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-[#a50000] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#ff2a2a] animate-pulse" />
               <div>
-                <span className="outfit-editorial text-[10px] text-white tracking-widest uppercase font-bold block">
+                <span className="outfit-editorial text-[11px] text-white tracking-widest uppercase font-bold block">
                   MOB CREATIVE PRODUCER
                 </span>
-                <span className="outfit-editorial text-[7px] text-zinc-500 uppercase block tracking-wider">
+                <span className="outfit-editorial text-[7px] text-zinc-400 uppercase block tracking-wider">
                   AI CONSULTING ENGAGED // ONLINE
                 </span>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Film className="w-3.5 h-3.5 text-zinc-600" />
-              <span className="outfit-editorial text-[7px] text-zinc-500 uppercase font-mono">
+              <span className="outfit-editorial text-[7px] text-zinc-400 uppercase font-mono">
                 CALIBRE // GEMINI 3.5
               </span>
             </div>
@@ -186,7 +186,7 @@ export default function GeminiChatbot() {
                   className={`max-w-[85%] text-xs py-2.5 px-3.5 rounded-sm uppercase tracking-wider leading-relaxed ${
                     msg.role === 'user'
                       ? 'bg-zinc-900 text-zinc-100 border border-white/5 font-mono'
-                      : 'bg-zinc-950 text-zinc-300 border-l-2 border-[#a50000] border-y border-r border-white/5'
+                      : 'bg-zinc-900/80 text-zinc-300 border-l-2 border-[#ff2a2a] border-y border-r border-white/5'
                   }`}
                 >
                   {msg.text}
@@ -197,12 +197,12 @@ export default function GeminiChatbot() {
             {/* Error Display */}
             {error && (
               <div className="bg-red-950/20 border border-red-900/30 p-3 rounded-sm flex items-start gap-2">
-                <AlertCircle className="w-4 h-4 text-[#a50000] shrink-0 mt-0.5" />
+                <AlertCircle className="w-4 h-4 text-[#ff2a2a] shrink-0 mt-0.5" />
                 <div className="space-y-1">
-                  <span className="outfit-editorial text-[8px] text-[#a50000] tracking-widest block font-bold">
+                  <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest block font-bold">
                     SYSTEM EXCEPTION // ERROR
                   </span>
-                  <p className="outfit-editorial text-[9px] text-zinc-400 uppercase leading-normal">
+                  <p className="outfit-editorial text-[11px] text-zinc-300 uppercase leading-normal">
                     {error}
                   </p>
                 </div>
@@ -215,11 +215,11 @@ export default function GeminiChatbot() {
                 <span className="outfit-editorial text-[6px] text-zinc-600 uppercase tracking-widest mb-1 select-none animate-pulse">
                   CALCULATING FRAME_RATE...
                 </span>
-                <div className="bg-zinc-950 text-zinc-500 border-l-2 border-zinc-700 border-y border-r border-white/5 text-xs py-2.5 px-3.5 rounded-sm flex items-center gap-2">
+                <div className="bg-zinc-900/80 text-zinc-400 border-l-2 border-zinc-700 border-y border-r border-white/5 text-xs py-2.5 px-3.5 rounded-sm flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 animate-bounce" style={{ animationDelay: '0ms' }} />
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 animate-bounce" style={{ animationDelay: '150ms' }} />
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 animate-bounce" style={{ animationDelay: '300ms' }} />
-                  <span className="font-mono text-[8px] text-zinc-600 tracking-widest uppercase ml-1">
+                  <span className="font-mono text-[11px] text-zinc-600 tracking-widest uppercase ml-1">
                     FOCUSING OPTICS
                   </span>
                 </div>
@@ -240,9 +240,9 @@ export default function GeminiChatbot() {
                   <button
                     key={i}
                     onClick={() => handleSend(sug)}
-                    className="bg-zinc-950 hover:bg-zinc-900 border border-white/5 hover:border-[#a50000]/30 py-1 px-2 rounded-sm text-[8px] outfit-editorial text-zinc-400 hover:text-white transition-all cursor-pointer flex items-center gap-1 uppercase"
+                    className="bg-zinc-900 hover:bg-zinc-800 border border-white/5 hover:border-[#ff2a2a]/30 py-1 px-2 rounded-sm text-[11px] outfit-editorial text-zinc-300 hover:text-white transition-all cursor-pointer flex items-center gap-1 uppercase"
                   >
-                    {sug} <ArrowRight className="w-2 h-2 text-[#a50000]" />
+                    {sug} <ArrowRight className="w-2 h-2 text-[#ff2a2a]" />
                   </button>
                 ))}
               </div>
@@ -250,7 +250,7 @@ export default function GeminiChatbot() {
           )}
 
           {/* Form Input Footer */}
-          <div className="p-4 border-t border-white/10 bg-zinc-950/40 flex items-center gap-2">
+          <div className="p-4 border-t border-white/10 bg-zinc-900/60 flex items-center gap-2">
             <div className="relative flex-1">
               <input
                 type="text"
@@ -259,7 +259,7 @@ export default function GeminiChatbot() {
                 onKeyDown={handleKeyDown}
                 disabled={isLoading}
                 placeholder="PROPOSE PRODUCTION PLANS..."
-                className="w-full bg-zinc-950 border border-white/10 hover:border-white/20 focus:border-[#a50000] focus:outline-none text-xs py-2 px-3 pr-8 rounded-sm uppercase tracking-wider text-zinc-200 placeholder:text-zinc-600 font-mono disabled:opacity-40"
+                className="w-full bg-zinc-900 border border-white/10 hover:border-white/20 focus:border-[#ff2a2a] focus:outline-none text-xs py-2 px-3 pr-8 rounded-sm uppercase tracking-wider text-zinc-200 placeholder:text-zinc-600 font-mono disabled:opacity-40"
               />
               <div className="absolute right-2 top-2.5 flex items-center gap-1 text-zinc-700 pointer-events-none">
                 <CornerDownLeft className="w-3 h-3" />
@@ -269,7 +269,7 @@ export default function GeminiChatbot() {
             <button
               onClick={() => handleSend()}
               disabled={isLoading || !input.trim()}
-              className="bg-[#a50000] disabled:bg-zinc-900 hover:bg-[#c00000] border border-[#a50000] disabled:border-white/5 text-white disabled:text-zinc-600 p-2 rounded-sm transition-all duration-200 cursor-pointer flex items-center justify-center shrink-0"
+              className="bg-[#ff2a2a] disabled:bg-zinc-900 hover:bg-[#ff4d4d] border border-[#ff2a2a] disabled:border-white/5 text-white disabled:text-zinc-600 p-2 rounded-sm transition-all duration-200 cursor-pointer flex items-center justify-center shrink-0"
             >
               <Send className="w-3.5 h-3.5" />
             </button>

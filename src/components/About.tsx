@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about" className="bg-[#050505] py-24 md:py-32 px-4 md:px-8 relative overflow-hidden border-t border-white/10">
       {/* Background Ambience */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-[#a50000]/3 rounded-full blur-[150px] pointer-events-none -translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-[#ff2a2a]/3 rounded-full blur-[150px] pointer-events-none -translate-y-1/2" />
       <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-white/1 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
@@ -13,11 +13,11 @@ export default function About() {
         {/* Section Technical Header */}
         <div className="border-b border-white/10 pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="outfit-editorial text-[10px] text-[#a50000] mb-2 uppercase tracking-widest font-bold">
+            <div className="outfit-editorial text-[11px] text-[#ff2a2a] mb-2 uppercase tracking-widest font-bold">
               [ EST_02 // THE STUDIO & FOUNDER ]
             </div>
             <h2 className="brutal text-3xl md:text-5xl tracking-tighter text-white uppercase font-black">
-              UNDERSTATED POWER<span className="text-[#a50000]">.</span>
+              UNDERSTATED POWER<span className="text-[#ff2a2a]">.</span>
             </h2>
           </div>
           <p className="outfit-editorial text-xs md:text-sm text-zinc-400 uppercase leading-relaxed max-w-md">
@@ -31,7 +31,7 @@ export default function About() {
           {/* Left Column: Heritage narrative & metrics */}
           <div className="lg:col-span-6 space-y-10">
             <div className="space-y-6">
-              <span className="outfit-editorial text-[9px] text-zinc-500 uppercase tracking-wider block">
+              <span className="outfit-editorial text-[11px] text-zinc-400 uppercase tracking-wider block">
                 [ THE MANIFESTO ]
               </span>
               <h3 className="brutal text-xl text-white tracking-tight uppercase">
@@ -48,20 +48,20 @@ export default function About() {
             {/* Micro Technical counters */}
             <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
               <div className="bg-black/40 border border-white/5 p-4 relative">
-                <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-[#a50000]/40 rounded-full m-3" />
+                <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-[#ff2a2a]/40 rounded-full m-3" />
                 <span className="font-mono text-xl md:text-3xl text-white font-bold block">
                   6M+
                 </span>
-                <span className="outfit-editorial text-[8px] text-zinc-500 uppercase tracking-widest mt-1 block">
+                <span className="outfit-editorial text-[11px] text-zinc-400 uppercase tracking-widest mt-1 block">
                   TOTAL ARCHIVE VIEWS
                 </span>
               </div>
 
               <div className="bg-black/40 border border-white/5 p-4 relative">
-                <span className="font-mono text-xl md:text-3xl text-[#a50000] font-bold block">
+                <span className="font-mono text-xl md:text-3xl text-[#ff2a2a] font-bold block">
                   700K+
                 </span>
-                <span className="outfit-editorial text-[8px] text-zinc-500 uppercase tracking-widest mt-1 block">
+                <span className="outfit-editorial text-[11px] text-zinc-400 uppercase tracking-widest mt-1 block">
                   AUTHENTIC LIKES
                 </span>
               </div>
@@ -69,12 +69,12 @@ export default function About() {
 
             {/* Collaborations */}
             <div className="pt-6 border-t border-white/10">
-              <span className="outfit-editorial text-[9px] text-zinc-500 uppercase tracking-wider block mb-4">
+              <span className="outfit-editorial text-[11px] text-zinc-400 uppercase tracking-wider block mb-4">
                 [ COLLABORATIONS ]
               </span>
               <div className="flex flex-wrap gap-3">
                 {['FIORE', 'ELEVEN DETAILING STUDIO', 'THE VOWS'].map(collab => (
-                  <span key={collab} className="px-3 py-1.5 bg-black/40 border border-white/10 text-zinc-400 text-[10px] outfit-editorial tracking-widest">
+                  <span key={collab} className="px-3 py-1.5 bg-black/40 border border-white/10 text-zinc-400 text-[11px] outfit-editorial tracking-widest">
                     {collab}
                   </span>
                 ))}
@@ -84,13 +84,13 @@ export default function About() {
 
           {/* Right Column: Profile Distorted Effect Module */}
           <div className="lg:col-span-6 bg-[#090909]/80 border border-white/10 p-6 sm:p-8 relative cursor-crosshair">
-            <div className="absolute top-0 right-0 h-[2px] w-24 bg-[#a50000]" />
+            <div className="absolute top-0 right-0 h-[2px] w-24 bg-[#ff2a2a]" />
             
             <div className="flex items-center justify-between mb-6 relative z-10">
-              <span className="outfit-editorial text-[9px] text-[#a50000] uppercase tracking-widest font-bold">
+              <span className="outfit-editorial text-[11px] text-[#ff2a2a] uppercase tracking-widest font-bold">
                 [ FOUNDER // SYNDICATE LEAD ]
               </span>
-              <span className="outfit-editorial text-[8px] text-zinc-500 font-mono">
+              <span className="outfit-editorial text-[11px] text-zinc-400 font-mono">
                 MOHIB_01
               </span>
             </div>
@@ -118,7 +118,7 @@ export default function About() {
                 <h4 className="brutal text-2xl text-white font-bold tracking-tight uppercase">
                   MOHIB
                 </h4>
-                <span className="outfit-editorial text-[9px] text-zinc-400 tracking-wider uppercase font-mono block">
+                <span className="outfit-editorial text-[11px] text-zinc-400 tracking-wider uppercase font-mono block">
                   FOUNDER / LEAD PRODUCER
                 </span>
               </div>

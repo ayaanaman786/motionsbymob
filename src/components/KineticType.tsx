@@ -211,11 +211,11 @@ export default function KineticType() {
         {/* Left Side: Analog Telemetry Column (Watches & High End Cameras vibe) */}
         <div className="hidden md:flex flex-col items-start space-y-4 text-left border-l border-white/10 pl-6 h-36 justify-between select-none">
           <div className="space-y-1">
-            <span className="outfit-editorial text-[8px] text-[#a50000] tracking-widest block font-bold">
+            <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest block font-bold">
               CALIBRATION BEZEL
             </span>
-            <div className="font-mono text-[9px] text-zinc-500 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#a50000] animate-pulse" />
+            <div className="font-mono text-[11px] text-zinc-400 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a] animate-pulse" />
               INDEX: [0{index + 1}] // 0{SLOGANS.length}
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function KineticType() {
               style={{
                 clipPath: 'inset(0 0 50% 0)',
                 transform: `translate(${shiftAmountX}px, ${shiftAmountY}px)`,
-                textShadow: isGlitching ? '2px 0 0 #00a5cf, -2px 0 0 #a50000' : 'none'
+                textShadow: isGlitching ? '2px 0 0 #00a5cf, -2px 0 0 #ff2a2a' : 'none'
               }}
             >
               {scrambledTitle}<br />
@@ -263,7 +263,7 @@ export default function KineticType() {
               style={{
                 clipPath: 'inset(50% 0 0 0)',
                 transform: `translate(${-shiftAmountX}px, ${-shiftAmountY}px)`,
-                textShadow: isGlitching ? '-2px 0 0 #00a5cf, 2px 0 0 #a50000' : 'none'
+                textShadow: isGlitching ? '-2px 0 0 #00a5cf, 2px 0 0 #ff2a2a' : 'none'
               }}
             >
               {scrambledTitle}<br />
@@ -286,7 +286,7 @@ export default function KineticType() {
           {/* Subtitle / Descriptive Slogan Under */}
           <div className="relative mt-6 overflow-hidden min-h-[16px] flex items-center justify-center">
             <p 
-              className={`outfit-editorial text-[9px] sm:text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest text-center transition-all duration-75`}
+              className={`outfit-editorial text-[11px] sm:text-[11px] md:text-xs text-zinc-400 uppercase tracking-widest text-center transition-all duration-75`}
               style={{
                 transform: isGlitching ? `translateX(${shiftAmountX * 0.2}px)` : 'none',
                 opacity: isGlitching ? 0.4 + (1 - glitchSeverity) * 0.6 : 1
@@ -301,19 +301,19 @@ export default function KineticType() {
         {/* Right Side: Bezel Technical Readouts */}
         <div className="hidden md:flex flex-col items-end space-y-4 text-right border-r border-white/10 pr-6 h-36 justify-between select-none">
           <div className="space-y-1">
-            <span className="outfit-editorial text-[8px] text-[#a50000] tracking-widest block font-bold">
+            <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest block font-bold">
               KINETIC ANGLE
             </span>
-            <div className="font-mono text-[9px] text-zinc-500 uppercase">
+            <div className="font-mono text-[11px] text-zinc-400 uppercase">
               {circularBezelAngle.toFixed(1)}&deg; ROT // {Math.round((smoothScrollY.current / 550) * 100)}% DEPTH
             </div>
           </div>
 
           <div className="space-y-1 text-right">
-            <span className="outfit-editorial text-[8px] text-zinc-500 tracking-widest block">
+            <span className="outfit-editorial text-[11px] text-zinc-400 tracking-widest block">
               STATUS
             </span>
-            <span className="font-mono text-[8px] px-2 py-0.5 border border-[#a50000]/40 text-white inline-block">
+            <span className="font-mono text-[11px] px-2 py-0.5 border border-[#ff2a2a]/40 text-white inline-block">
               {isGlitching ? `GLITCH_MOD_ACTIVE // ${(glitchSeverity * 100).toFixed(0)}%` : "DAMPING_CALIBRATED"}
             </span>
           </div>

@@ -44,24 +44,24 @@ export default function Navigation() {
               <button
                 key={link.label}
                 onClick={() => handleScrollTo(link.href.slice(1))}
-                className="outfit-editorial text-[10px] uppercase text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer relative group py-2"
+                className="outfit-editorial text-[11px] uppercase text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer relative group py-2"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#a50000] group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#ff2a2a] group-hover:w-full transition-all duration-300" />
               </button>
             ))}
           </nav>
 
           {/* Right: Technical Active indicator */}
-          <div className="hidden lg:flex items-center gap-2 outfit-editorial text-[9px] text-gray-500 uppercase">
-            <Terminal className="w-3.5 h-3.5 text-[#a50000]" />
+          <div className="hidden lg:flex items-center gap-2 outfit-editorial text-[11px] text-gray-400 uppercase">
+            <Terminal className="w-3.5 h-3.5 text-[#ff2a2a]" />
             <span>STATUS: ONLINE</span>
           </div>
 
           {/* Mobile menu toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer p-1"
+            className="md:hidden text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer p-1"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -104,8 +104,8 @@ export default function Navigation() {
                 </div>
 
                 {/* Subtitle / Tech note */}
-                <div className="flex items-center gap-1.5 outfit-editorial text-[8px] text-gray-500 tracking-[0.2em] uppercase mb-8">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#a50000] animate-pulse" />
+                <div className="flex items-center gap-1.5 outfit-editorial text-[11px] text-gray-400 tracking-[0.2em] uppercase mb-8">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a] animate-pulse" />
                   <span>DIRECTIVE: SELECT SECTOR</span>
                 </div>
 
@@ -120,20 +120,20 @@ export default function Navigation() {
                       onClick={() => handleScrollTo(link.href.slice(1))}
                       className="group flex items-center justify-between py-3 px-4 rounded-sm border border-transparent hover:border-white/5 hover:bg-white/2 transition-all duration-300 text-left cursor-pointer w-full"
                     >
-                      <span className="outfit-editorial text-[10px] tracking-[0.25em] text-gray-400 group-hover:text-white uppercase transition-colors duration-300">
+                      <span className="outfit-editorial text-[11px] tracking-[0.25em] text-gray-300 group-hover:text-white uppercase transition-colors duration-300">
                         {link.label}
                       </span>
-                      <span className="w-1 h-1 rounded-full bg-transparent group-hover:bg-[#a50000] group-hover:shadow-[0_0_8px_#a50000] transition-all duration-300" />
+                      <span className="w-1 h-1 rounded-full bg-transparent group-hover:bg-[#ff2a2a] group-hover:shadow-[0_0_8px_#ff2a2a] transition-all duration-300" />
                     </motion.button>
                   ))}
                 </nav>
               </div>
 
               {/* Mobile footer within drawer */}
-              <div className="pt-8 border-t border-white/5 space-y-3.5 outfit-editorial text-[8px] text-gray-500 uppercase tracking-widest">
+              <div className="pt-8 border-t border-white/5 space-y-3.5 outfit-editorial text-[11px] text-gray-400 uppercase tracking-widest">
                 <div className="flex items-center justify-between">
                   <span>SYS_CONN: ACTIVE</span>
-                  <span className="text-[#a50000] font-bold">100%</span>
+                  <span className="text-[#ff2a2a] font-bold">100%</span>
                 </div>
                 <div className="text-[7px] text-gray-600">
                   &copy; {new Date().getFullYear()} MOTIONS BY MOB. ALL SENSORS CALIBRATED.

@@ -19,11 +19,11 @@ export default function App() {
   const getLutStyle = (): React.CSSProperties => {
     switch (lutGrade) {
       case 'aces':
-        return { filter: 'contrast(1.05) saturate(1.15) brightness(0.98)' };
+        return { filter: 'contrast(1.05) saturate(1.15) brightness(1.0)' };
       case 'monolith':
-        return { filter: 'contrast(1.08) saturate(0.82) sepia(0.15) hue-rotate(12deg) brightness(0.94)' };
+        return { filter: 'contrast(1.08) saturate(0.82) sepia(0.15) hue-rotate(12deg) brightness(0.98)' };
       case 'stealth':
-        return { filter: 'grayscale(1) contrast(1.20) brightness(0.86)' };
+        return { filter: 'grayscale(1) contrast(1.10) brightness(0.96)' };
       case 'raw':
       default:
         return { filter: 'none' };
@@ -31,7 +31,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#a50000] selection:text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[#ff2a2a] selection:text-white">
       {/* Cinematic Crop Overlays (Top/Bottom/Sides Matte Bars) */}
       {/* Top bar */}
       <div 
@@ -42,7 +42,7 @@ export default function App() {
         }}
       >
         {aspectRatio !== 'free' && aspectRatio !== 'vertical' && (
-          <span className="outfit-editorial text-[7px] text-zinc-500 uppercase tracking-[0.3em]">
+          <span className="outfit-editorial text-[7px] text-zinc-400 uppercase tracking-[0.3em]">
             [ CAMERA_REC_PREVIEW // {aspectRatio === 'anamorphic' ? '2.39:1 ANAMORPHIC' : '16:9 WIDESCREEN'} ]
           </span>
         )}

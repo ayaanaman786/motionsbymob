@@ -98,21 +98,21 @@ export default function ColoristSlider() {
 
   return (
     <section id="colorist" className="bg-[#030303] py-24 md:py-32 px-4 md:px-8 relative border-t border-white/5 overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-[#a50000]/3 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-[#ff2a2a]/3 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
         <div className="border-b border-white/10 pb-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="outfit-editorial text-[10px] text-[#a50000] mb-2 uppercase">
+            <div className="outfit-editorial text-[11px] text-[#ff2a2a] mb-2 uppercase">
               [ ARCHIVE_01 // GRADING SUITE ]
             </div>
             <h2 className="brutal text-3xl md:text-5xl tracking-tighter text-white uppercase font-black">
-              Colorist Desk<span className="text-[#a50000]">.</span>
+              Colorist Desk<span className="text-[#ff2a2a]">.</span>
             </h2>
           </div>
-          <p className="outfit-editorial text-[10px] sm:text-xs text-zinc-400 uppercase leading-relaxed max-w-sm">
+          <p className="outfit-editorial text-[11px] sm:text-xs text-zinc-400 uppercase leading-relaxed max-w-sm">
             Slide the vertical reticle to compare raw uncompressed sensor footage with our master graded lookup curves.
           </p>
         </div>
@@ -144,7 +144,7 @@ export default function ColoristSlider() {
                   referrerPolicy="no-referrer"
                 />
                 {/* Floating Indicator */}
-                <div className="absolute bottom-4 left-6 z-20 bg-black/75 px-3 py-1 border border-white/10 outfit-editorial text-[8px] text-zinc-400">
+                <div className="absolute bottom-4 left-6 z-20 bg-black/75 px-3 py-1 border border-white/10 outfit-editorial text-[11px] text-zinc-400">
                   SECURE_RAW_LOG // REDLOG3G10
                 </div>
               </div>
@@ -173,27 +173,27 @@ export default function ColoristSlider() {
                   />
                 </div>
                 {/* Floating Indicator */}
-                <div className="absolute bottom-4 right-6 z-20 bg-black/75 px-3 py-1 border border-[#a50000]/40 outfit-editorial text-[8px] text-white">
+                <div className="absolute bottom-4 right-6 z-20 bg-black/75 px-3 py-1 border border-[#ff2a2a]/40 outfit-editorial text-[11px] text-white">
                   GRADED_MASTER // {currentPreset.name}
                 </div>
               </div>
 
               {/* Slider Divider bar and central handle dial */}
               <div 
-                className="absolute inset-y-0 z-30 w-[1px] bg-[#a50000]"
+                className="absolute inset-y-0 z-30 w-[1px] bg-[#ff2a2a]"
                 style={{ left: `${sliderPosition}%` }}
               >
                 {/* Central Handle */}
                 <div 
                   onMouseDown={handleMouseDown}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black border border-[#a50000] flex flex-col items-center justify-center shadow-[0_0_15px_#a50000] cursor-grab active:cursor-grabbing transition-transform duration-200 group-hover:scale-105"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black border border-[#ff2a2a] flex flex-col items-center justify-center shadow-[0_0_15px_#ff2a2a] cursor-grab active:cursor-grabbing transition-transform duration-200 group-hover:scale-105"
                 >
                   <Sliders className="w-4 h-4 text-white rotate-90" />
                   <span className="outfit-editorial text-[5px] text-zinc-400 font-bold tracking-widest mt-0.5">TUNE</span>
                 </div>
 
                 {/* Vertical dash coordinate markings */}
-                <div className="absolute top-4 left-2 outfit-editorial text-[7px] text-[#a50000] tracking-widest bg-black/80 px-1 rounded-sm">
+                <div className="absolute top-4 left-2 outfit-editorial text-[7px] text-[#ff2a2a] tracking-widest bg-black/80 px-1 rounded-sm">
                   RETICLE_0{Math.round(sliderPosition)}
                 </div>
               </div>
@@ -214,7 +214,7 @@ export default function ColoristSlider() {
 
               {/* Dynamic HUD Metadata Readouts overlay */}
               {showMetadata && (
-                <div className="absolute top-6 inset-x-6 flex justify-between pointer-events-none outfit-editorial text-[8px] text-zinc-400">
+                <div className="absolute top-6 inset-x-6 flex justify-between pointer-events-none outfit-editorial text-[11px] text-zinc-400">
                   <div className="flex gap-4 bg-black/60 p-2 border border-white/5">
                     <span>FOCAL: 50MM</span>
                     <span>APERTURE: T1.5</span>
@@ -234,11 +234,11 @@ export default function ColoristSlider() {
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setShowMetadata(!showMetadata)}
-                  className="flex items-center gap-1.5 py-1.5 px-3 border border-white/10 hover:border-white/30 rounded-sm text-[8px] outfit-editorial text-zinc-400 hover:text-white uppercase transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-1.5 py-1.5 px-3 border border-white/10 hover:border-white/30 rounded-sm text-[11px] outfit-editorial text-zinc-400 hover:text-white uppercase transition-all duration-200 cursor-pointer"
                 >
                   {showMetadata ? (
                     <>
-                      <EyeOff className="w-3 h-3 text-[#a50000]" /> HIDE TELEMETRY HUD
+                      <EyeOff className="w-3 h-3 text-[#ff2a2a]" /> HIDE TELEMETRY HUD
                     </>
                   ) : (
                     <>
@@ -249,18 +249,18 @@ export default function ColoristSlider() {
 
                 <button
                   onClick={() => setSliderPosition(50)}
-                  className="flex items-center gap-1.5 py-1.5 px-3 border border-white/10 hover:border-white/30 rounded-sm text-[8px] outfit-editorial text-zinc-400 hover:text-white uppercase transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-1.5 py-1.5 px-3 border border-white/10 hover:border-white/30 rounded-sm text-[11px] outfit-editorial text-zinc-400 hover:text-white uppercase transition-all duration-200 cursor-pointer"
                 >
                   <RefreshCw className="w-3 h-3" /> RESET RETICLE
                 </button>
               </div>
 
               {/* Progress visual bar */}
-              <div className="flex items-center gap-3 outfit-editorial text-[8px] text-zinc-500 uppercase">
+              <div className="flex items-center gap-3 outfit-editorial text-[11px] text-zinc-400 uppercase">
                 <span>0% RAW</span>
                 <div className="w-24 h-1 bg-zinc-900 rounded-full overflow-hidden">
                   <div 
-                    className="bg-[#a50000] h-full"
+                    className="bg-[#ff2a2a] h-full"
                     style={{ width: `${sliderPosition}%` }}
                   />
                 </div>
@@ -271,11 +271,11 @@ export default function ColoristSlider() {
           </div>
 
           {/* Colorist Parameters / Presets Side Panel */}
-          <div className="lg:col-span-3 bg-zinc-950/40 border border-white/10 p-6 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-3 bg-zinc-900/60 border border-white/10 p-6 flex flex-col justify-between space-y-6">
             
             <div className="space-y-6">
               <div>
-                <span className="outfit-editorial text-[8px] text-zinc-500 uppercase block tracking-widest mb-1">
+                <span className="outfit-editorial text-[11px] text-zinc-400 uppercase block tracking-widest mb-1">
                   SECURE CONTROL MATRIX
                 </span>
                 <h4 className="brutal text-lg text-white font-black tracking-tight uppercase">
@@ -291,19 +291,19 @@ export default function ColoristSlider() {
                     onClick={() => setActivePreset(preset)}
                     className={`w-full text-left p-4 border transition-all duration-300 relative cursor-pointer ${
                       activePreset === preset
-                        ? 'bg-[#a50000]/5 border-[#a50000] shadow-[0_0_15px_rgba(165,0,0,0.1)]'
+                        ? 'bg-[#ff2a2a]/5 border-[#ff2a2a] shadow-[0_0_15px_rgba(165,0,0,0.1)]'
                         : 'bg-black border-white/5 hover:border-white/15'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="outfit-editorial text-[9px] font-bold text-white uppercase tracking-wider">
+                      <span className="outfit-editorial text-[11px] font-bold text-white uppercase tracking-wider">
                         {preset === 'aces' ? 'ACES CINEMA' : preset === 'monolith' ? 'MONOLITH COLD' : 'STEALTH MONO'}
                       </span>
                       {activePreset === preset && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#a50000] animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a] animate-pulse" />
                       )}
                     </div>
-                    <span className="block outfit-editorial text-[7px] text-zinc-500 uppercase">
+                    <span className="block outfit-editorial text-[7px] text-zinc-400 uppercase">
                       {preset === 'aces' ? 'WARM FLARE & SATURATED FLUIDITY' : preset === 'monolith' ? 'BRUTALIST TEAL & DESATURATED METALS' : 'AGRESSIVE MONOCHROME CONTRAST'}
                     </span>
                   </button>
@@ -312,10 +312,10 @@ export default function ColoristSlider() {
 
               {/* Technical Telemetry Readout */}
               <div className="border-t border-white/10 pt-5 space-y-3">
-                <span className="outfit-editorial text-[8px] text-zinc-500 uppercase block tracking-wider">
+                <span className="outfit-editorial text-[11px] text-zinc-400 uppercase block tracking-wider">
                   ACTIVE_LUT PARAMETERS
                 </span>
-                <div className="space-y-2 outfit-editorial text-[9px] text-zinc-400">
+                <div className="space-y-2 outfit-editorial text-[11px] text-zinc-400">
                   <div className="flex justify-between">
                     <span>VECTOR INDEX:</span>
                     <span className="text-white font-bold">{currentPreset.lutID}</span>
@@ -330,7 +330,7 @@ export default function ColoristSlider() {
                   </div>
                   <div className="flex justify-between">
                     <span>BLACK POINT:</span>
-                    <span className="text-[#a50000] font-bold">LOG SCALE (0.012)</span>
+                    <span className="text-[#ff2a2a] font-bold">LOG SCALE (0.012)</span>
                   </div>
                 </div>
               </div>
