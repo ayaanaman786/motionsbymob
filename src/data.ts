@@ -9,19 +9,19 @@ export const NAVIGATION_LINKS: NavigationLink[] = [
 
 export const MANIFESTO_PARAGRAPHS: ManifestoParagraph[] = [
   {
-    highlight: "UNDERSTATED POWER. UNIFIED PRESENCE.",
+    highlight: "ONLY THE ESSENTIALS.",
     body: "We focus exclusively on clean luxury SUV culture. We capture the imposing silhouettes of Land Cruisers, Range Rovers, and Patrols, framed in high-contrast cinematic glory. We do not participate in cheap visual stunts."
   },
   {
-    highlight: "A SEAMLESS SILHOUETTE OF GLASS AND METAL.",
+    highlight: "СТРОГО И СО ВКУСОМ.",
     body: "The curves of factory-designed engineering are flawless. Our cameras trace the exact lines laid down by master artisans. Every shot is a study in weight, proportion, and motion."
   },
   {
-    highlight: "QUIET AUTHORITY. NO LOUD WRAPS. NO RACING DECALS.",
+    highlight: "BUILT WITH PURPOSE.",
     body: "We reject the chaotic noise of attention-seeking modifications. True power does not need to yell. It is built in the OEM+ details, the blacked-out chrome, the factory-correct stance, and the pure darkness of metallic paints."
   },
   {
-    highlight: "WE DO NOT COMPETE FOR ATTENTION. WE SIMPLY COMMAND IT.",
+    highlight: "МЫ ЗАДАЕМ ТОН.",
     body: "Our films do not feature frantic quick-cuts or aggressive overlays. We capture the unyielding gravity of premium vehicles cruising under low-angle suns or parked in deep concrete monoliths."
   }
 ];
@@ -162,6 +162,15 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     imageUrl: '/images/revo_3.webp',
     category: 'cinematic',
     carModel: 'Toyota Revo',
+    year: '2026'
+  },
+  {
+    id: 'film-16',
+    title: 'THE ARCHITECT',
+    subtitle: 'Vision and precision',
+    imageUrl: '/images/mohib  (1).webp',
+    category: 'feature',
+    carModel: 'Unknown',
     year: '2026'
   }
 ];

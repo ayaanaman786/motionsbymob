@@ -30,7 +30,7 @@ export default function Manifesto() {
             <h2 
               className="brutal text-3xl md:text-5xl tracking-tight text-white uppercase font-light"
             >
-              Quiet Authority.
+              Absolute.
             </h2>
           </div>
           <p 
