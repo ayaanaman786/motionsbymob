@@ -3,9 +3,7 @@ import { GalleryItem, ManifestoParagraph, NavigationLink } from './types';
 export const NAVIGATION_LINKS: NavigationLink[] = [
   { label: 'MANIFESTO', href: '#manifesto' },
   { label: 'ABOUT', href: '#about' },
-  { label: 'COLOR DESK', href: '#colorist' },
   { label: 'REELS & FILMS', href: '#gallery' },
-  { label: 'EXHAUST CONSOLE', href: '#exhaust-console' },
   { label: 'CONNECT', href: '#contact' },
 ];
 

@@ -3,12 +3,9 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Manifesto from './components/Manifesto';
 import About from './components/About';
-import ColoristSlider from './components/ColoristSlider';
 import Gallery from './components/Gallery';
 
-import EngineAcoustics from './components/EngineAcoustics';
 import Contact from './components/Contact';
-import CinematicControls from './components/CinematicControls';
 import GeminiChatbot from './components/GeminiChatbot';
 
 export default function App() {
@@ -26,12 +23,12 @@ export default function App() {
         return { filter: 'grayscale(1) contrast(1.10) brightness(0.96)' };
       case 'raw':
       default:
-        return { filter: 'none' };
+        return {};
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[#ff2a2a] selection:text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[white] selection:text-white">
       {/* Cinematic Crop Overlays (Top/Bottom/Sides Matte Bars) */}
       {/* Top bar */}
       <div 
@@ -109,27 +106,13 @@ export default function App() {
           {/* The Studio & Collective About section */}
           <About />
 
-          {/* Interactive Colorist Calibration Desk */}
-          <ColoristSlider />
-
           {/* Gallery Archive Catalog */}
           <Gallery />
-
-          {/* Interactive Audio Exhaust Acoustics Console */}
-          <EngineAcoustics />
 
           {/* Connect & Distro Desk */}
           <Contact />
         </main>
       </div>
-
-      {/* Premium Cinematic Tuning Controls */}
-      <CinematicControls 
-        lutGrade={lutGrade} 
-        setLutGrade={setLutGrade} 
-        aspectRatio={aspectRatio} 
-        setAspectRatio={setAspectRatio} 
-      />
 
       {/* Premium Automotive Cinema Chatbot Consultant */}
       <GeminiChatbot />

@@ -31,21 +31,17 @@ export default function Hero() {
           alt="Cinematic Black Revo Silhoutte"
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-center scale-105 animate-ambient transition-transform duration-[10000ms]"
+          className="w-full h-full object-cover object-center scale-105 animate-ambient transition-transform duration-[10000ms] transform-gpu will-change-transform"
           referrerPolicy="no-referrer"
         />
         
-        {/* Subtle horizontal red laser lens flare in background */}
-        <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[2px] bg-[#ff2a2a] opacity-40 z-10 blur-[1px]">
-          <div className="absolute inset-0 w-full h-[6px] -top-[2px] bg-[#ff2a2a] blur-md opacity-60" />
-        </div>
       </div>
 
       {/* Cinematic Top Letterbox */}
-      <div className="w-full h-8 md:h-12 bg-black z-20 border-b border-white/10 flex items-center justify-between px-4 md:px-8 outfit-editorial text-[11px] text-gray-400 uppercase">
-        <div>SYS_ONLINE // MOTIONS BY MOB</div>
+      <div className="w-full h-8 md:h-12 bg-black z-20 border-b border-white/5 flex items-center justify-between px-4 md:px-8 outfit-editorial text-[10px] text-zinc-500 tracking-[0.2em] uppercase">
+        <div>MOTIONS BY MOB</div>
         <div className="hidden sm:block text-right">OEM+ AUTOMOTIVE VIDEOGRAPHY</div>
-        <div className="block sm:hidden text-right">M.O.B. REELS</div>
+        <div className="block sm:hidden text-right">PORTFOLIO</div>
       </div>
 
       {/* Main Hero Content Frame */}
@@ -66,30 +62,22 @@ export default function Hero() {
       </div>
 
       {/* Cinematic Bottom Letterbox */}
-      <div className="w-full h-14 bg-black z-20 border-t border-white/10 flex items-center justify-between px-4 md:px-8">
-        {/* Left Side: Video Loop Indicator */}
-        <div className="flex items-center gap-3">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff2a2a] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff2a2a]"></span>
-          </span>
-          <span className="outfit-editorial text-[11px] text-gray-300 uppercase">
-            LIVE FEED // ACTIVE PREVIEW
-          </span>
-        </div>
+      <div className="w-full h-14 bg-black z-20 border-t border-white/5 flex items-center justify-between px-4 md:px-8">
+        {/* Left Side: Empty space for balance */}
+        <div className="w-24"></div>
 
         {/* Center: Scroll Prompt */}
         <button 
           onClick={() => handleScrollTo('manifesto')}
-          className="flex flex-col items-center text-gray-400 hover:text-[#ff2a2a] transition-colors duration-300 cursor-pointer pl-6 sm:pl-0"
+          className="flex flex-col items-center text-zinc-500 hover:text-white transition-colors duration-300 cursor-pointer"
         >
-          <span className="outfit-editorial text-[11px] uppercase mb-0.5">SCROLL TO ENTER</span>
-          <ChevronDown className="w-4 h-4 animate-bounce" />
+          <span className="outfit-editorial text-[10px] tracking-[0.2em] uppercase mb-1">SCROLL TO EXPLORE</span>
+          <ChevronDown className="w-4 h-4" />
         </button>
 
-        {/* Right Side: Aspect Ratio Badge */}
-        <div className="outfit-editorial text-[11px] text-gray-400">
-          2.39:1 CINEMATIC FRAME
+        {/* Right Side: Subtle year mark */}
+        <div className="outfit-editorial text-[10px] tracking-[0.2em] text-zinc-600 w-24 text-right">
+          2026 // EST
         </div>
       </div>
     </section>

@@ -47,15 +47,19 @@ export default function Navigation() {
                 className="outfit-editorial text-[11px] uppercase text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer relative group py-2"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#ff2a2a] group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300" />
               </button>
             ))}
           </nav>
 
-          {/* Right: Technical Active indicator */}
-          <div className="hidden lg:flex items-center gap-2 outfit-editorial text-[11px] text-gray-400 uppercase">
-            <Terminal className="w-3.5 h-3.5 text-[#ff2a2a]" />
-            <span>STATUS: ONLINE</span>
+          {/* Right: Consultation Trigger */}
+          <div className="hidden lg:flex items-center">
+            <button
+              onClick={() => window.dispatchEvent(new Event('open-chat'))}
+              className="outfit-editorial text-[10px] text-white uppercase tracking-[0.2em] border border-white/20 hover:border-white px-5 py-2 transition-all duration-300"
+            >
+              INQUIRE
+            </button>
           </div>
 
           {/* Mobile menu toggle */}
@@ -103,11 +107,7 @@ export default function Navigation() {
                   </button>
                 </div>
 
-                {/* Subtitle / Tech note */}
-                <div className="flex items-center gap-1.5 outfit-editorial text-[11px] text-gray-400 tracking-[0.2em] uppercase mb-8">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a] animate-pulse" />
-                  <span>DIRECTIVE: SELECT SECTOR</span>
-                </div>
+
 
                 {/* Navigation Links inside Drawer */}
                 <nav className="flex flex-col gap-2">
@@ -123,20 +123,25 @@ export default function Navigation() {
                       <span className="outfit-editorial text-[11px] tracking-[0.25em] text-gray-300 group-hover:text-white uppercase transition-colors duration-300">
                         {link.label}
                       </span>
-                      <span className="w-1 h-1 rounded-full bg-transparent group-hover:bg-[#ff2a2a] group-hover:shadow-[0_0_8px_#ff2a2a] transition-all duration-300" />
+                      <span className="w-1 h-1 rounded-full bg-transparent group-hover:bg-white group-hover:shadow-[0_0_8px_white] transition-all duration-300" />
                     </motion.button>
                   ))}
                 </nav>
               </div>
 
               {/* Mobile footer within drawer */}
-              <div className="pt-8 border-t border-white/5 space-y-3.5 outfit-editorial text-[11px] text-gray-400 uppercase tracking-widest">
-                <div className="flex items-center justify-between">
-                  <span>SYS_CONN: ACTIVE</span>
-                  <span className="text-[#ff2a2a] font-bold">100%</span>
-                </div>
-                <div className="text-[7px] text-gray-600">
-                  &copy; {new Date().getFullYear()} MOTIONS BY MOB. ALL SENSORS CALIBRATED.
+              <div className="pt-8 border-t border-white/5 flex flex-col gap-6">
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    window.dispatchEvent(new Event('open-chat'));
+                  }}
+                  className="w-full outfit-editorial text-[10px] text-white uppercase tracking-[0.2em] border border-white/20 hover:border-white py-3 transition-all duration-300"
+                >
+                  INQUIRE
+                </button>
+                <div className="text-[8px] text-zinc-600 uppercase tracking-widest text-center">
+                  &copy; {new Date().getFullYear()} MOTIONS BY MOB.
                 </div>
               </div>
             </motion.div>

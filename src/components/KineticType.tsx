@@ -38,18 +38,43 @@ export default function KineticType() {
   });
 
   const requestRef = useRef<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(true);
+
+  // Setup intersection observer to pause animation when off-screen
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setIsInView(entries[0].isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Sync window scroll value
   useEffect(() => {
+    if (!isInView) return; // Don't track scroll if not in view
+    
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isInView]);
 
   // Butter-smooth spring interpolation for scroll
   useEffect(() => {
+    if (!isInView) {
+      if (requestRef.current) cancelAnimationFrame(requestRef.current);
+      return;
+    }
+
     const animateScroll = () => {
       // 0.1 interpolation factor for a heavy, high-end weighted "slow motion" feel
       smoothScrollY.current += (scrollY - smoothScrollY.current) * 0.1;
@@ -64,11 +89,6 @@ export default function KineticType() {
       let glitchSeverity = 0;
 
       // Define transition checkpoints
-      // Slogan 1: 0.00 -> 0.28
-      // Transition 1->2: 0.28 -> 0.40 (duration 0.12)
-      // Slogan 2: 0.40 -> 0.68
-      // Transition 2->3: 0.68 -> 0.80 (duration 0.12)
-      // Slogan 3: 0.80 -> 1.00
       if (progress < 0.28) {
         index = 0;
         targetIndex = 0;
@@ -78,7 +98,6 @@ export default function KineticType() {
         targetIndex = 1;
         factor = (progress - 0.28) / 0.12;
         isGlitching = true;
-        // Peak glitch intensity in the middle of transition
         glitchSeverity = Math.sin(factor * Math.PI);
       } else if (progress >= 0.40 && progress < 0.68) {
         index = 1;
@@ -117,7 +136,7 @@ export default function KineticType() {
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, [scrollY]);
+  }, [scrollY, isInView]);
 
   // Deterministic/Random character scramble utility
   const getScrambledText = (textA: string, textB: string, factor: number, isGlitching: boolean, severity: number) => {
@@ -136,7 +155,6 @@ export default function KineticType() {
       const baseChar = factor > 0.5 ? charB : charA;
 
       // When glitching, we replace letters with numbers or technical symbols based on severity
-      // Higher severity means higher chance of character breakdown
       const randomChance = Math.random();
       if (randomChance < severity * 0.48) {
         const glyphIdx = Math.floor(Math.abs(Math.sin(i + scrollY)) * GLYPHS.length) % GLYPHS.length;
@@ -160,15 +178,14 @@ export default function KineticType() {
   const scrambledDesc = getScrambledText(currentSloganA.desc, currentSloganB.desc, factor, isGlitching, glitchSeverity * 0.5);
 
   // Compute styling translations for split sheer glitches
-  // Slices will move in opposite directions
   const shiftAmountX = isGlitching ? (glitchSeverity * 24 * Math.sin(scrollY * 0.05)) : 0;
   const shiftAmountY = isGlitching ? (glitchSeverity * 4 * Math.cos(scrollY * 0.1)) : 0;
 
-  // Rotating angle for watch chronograph bezel (1 scrollpx = 0.45deg rotation)
+  // Rotating angle for watch chronograph bezel
   const circularBezelAngle = smoothScrollY.current * 0.45;
 
   return (
-    <div className="w-full flex flex-col items-center relative py-4 sm:py-6">
+    <div ref={containerRef} className="w-full flex flex-col items-center relative py-4 sm:py-6">
       
       {/* Decorative Luxury Bezel Backdrop & Chrono Dial */}
       <div className="absolute -top-12 opacity-15 pointer-events-none select-none z-0 overflow-hidden">
@@ -209,34 +226,24 @@ export default function KineticType() {
       <div className="relative w-full max-w-4xl text-center px-4 flex flex-col md:flex-row items-center justify-between gap-12 z-10">
         
         {/* Left Side: Analog Telemetry Column (Watches & High End Cameras vibe) */}
-        <div className="hidden md:flex flex-col items-start space-y-4 text-left border-l border-white/10 pl-6 h-36 justify-between select-none">
+        <div className="hidden md:flex flex-col items-start space-y-4 text-left border-l border-white/5 pl-6 h-36 justify-between select-none">
           <div className="space-y-1">
-            <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest block font-bold">
-              CALIBRATION BEZEL
+            <span className="outfit-editorial text-[10px] text-zinc-500 tracking-[0.2em] block uppercase">
+              — SCROLL INDEX
             </span>
-            <div className="font-mono text-[11px] text-zinc-400 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a] animate-pulse" />
-              INDEX: [0{index + 1}] // 0{SLOGANS.length}
+            <div className="font-mono text-[10px] text-zinc-400">
+              0{index + 1} / 0{SLOGANS.length}
             </div>
           </div>
 
           {/* Micro ticking slider */}
           <div className="space-y-1.5 w-32">
-            <div className="flex justify-between font-mono text-[7px] text-zinc-600">
-              <span>0.00K NT</span>
-              <span>1.00K NT</span>
-            </div>
-            <div className="h-[2px] w-full bg-zinc-900 rounded-full overflow-hidden relative">
+            <div className="h-[1px] w-full bg-zinc-900 overflow-hidden relative">
               <div 
-                className="h-full bg-white transition-all duration-75"
+                className="h-full bg-zinc-500 transition-all duration-75"
                 style={{ width: `${(smoothScrollY.current / 550) * 100}%` }}
               />
             </div>
-          </div>
-
-          <div className="font-mono text-[7px] text-zinc-600 uppercase leading-relaxed">
-            SYSTEM SHIFT ENGINES ACTUATED<br />
-            LAG_FACTOR: 0.10s FLUID WEIGHT
           </div>
         </div>
 
@@ -246,24 +253,24 @@ export default function KineticType() {
             
             {/* Top Slash Sheared Glitch Component (Clip top 50%) */}
             <h2 
-              className="brutal text-4xl sm:text-6xl md:text-[84px] leading-[0.85] tracking-tighter text-white font-black absolute inset-0 select-none pointer-events-none opacity-90 transition-transform duration-75"
+              className="brutal text-4xl sm:text-6xl md:text-[84px] leading-[0.85] tracking-tight text-white font-light absolute inset-0 select-none pointer-events-none opacity-90 transition-transform duration-75"
               style={{
                 clipPath: 'inset(0 0 50% 0)',
                 transform: `translate(${shiftAmountX}px, ${shiftAmountY}px)`,
-                textShadow: isGlitching ? '2px 0 0 #00a5cf, -2px 0 0 #ff2a2a' : 'none'
+                textShadow: isGlitching ? '2px 0 8px rgba(255,255,255,0.2)' : 'none'
               }}
             >
               {scrambledTitle}<br />
-              <span className="text-white/90">{scrambledSubtitle}</span>
+              <span className="text-white/80">{scrambledSubtitle}</span>
             </h2>
 
             {/* Bottom Slash Sheared Glitch Component (Clip bottom 50%) */}
             <h2 
-              className="brutal text-4xl sm:text-6xl md:text-[84px] leading-[0.85] tracking-tighter text-white font-black absolute inset-0 select-none pointer-events-none opacity-90 transition-transform duration-75"
+              className="brutal text-4xl sm:text-6xl md:text-[84px] leading-[0.85] tracking-tight text-white font-light absolute inset-0 select-none pointer-events-none opacity-90 transition-transform duration-75"
               style={{
                 clipPath: 'inset(50% 0 0 0)',
                 transform: `translate(${-shiftAmountX}px, ${-shiftAmountY}px)`,
-                textShadow: isGlitching ? '-2px 0 0 #00a5cf, 2px 0 0 #ff2a2a' : 'none'
+                textShadow: isGlitching ? '-2px 0 8px rgba(255,255,255,0.2)' : 'none'
               }}
             >
               {scrambledTitle}<br />
@@ -272,13 +279,13 @@ export default function KineticType() {
 
             {/* Core Reference Layer (Invisible or low opacity to reserve vertical layout space) */}
             <h2 
-              className="brutal text-4xl sm:text-6xl md:text-[84px] leading-[0.85] tracking-tighter text-white font-black transition-opacity duration-200"
+              className="brutal text-4xl sm:text-6xl md:text-[84px] leading-[0.85] tracking-tight text-white font-light transition-opacity duration-200"
               style={{
                 opacity: isGlitching ? 0.05 : 1
               }}
             >
               {scrambledTitle}<br />
-              <span className="text-white/90">{scrambledSubtitle}</span>
+              <span className="text-white/80">{scrambledSubtitle}</span>
             </h2>
 
           </div>
@@ -299,28 +306,23 @@ export default function KineticType() {
         </div>
 
         {/* Right Side: Bezel Technical Readouts */}
-        <div className="hidden md:flex flex-col items-end space-y-4 text-right border-r border-white/10 pr-6 h-36 justify-between select-none">
+        <div className="hidden md:flex flex-col items-end space-y-4 text-right border-r border-white/5 pr-6 h-36 justify-between select-none">
           <div className="space-y-1">
-            <span className="outfit-editorial text-[11px] text-[#ff2a2a] tracking-widest block font-bold">
-              KINETIC ANGLE
+            <span className="outfit-editorial text-[10px] text-zinc-500 tracking-[0.2em] block uppercase">
+              — KINETIC ANGLE
             </span>
-            <div className="font-mono text-[11px] text-zinc-400 uppercase">
-              {circularBezelAngle.toFixed(1)}&deg; ROT // {Math.round((smoothScrollY.current / 550) * 100)}% DEPTH
+            <div className="font-mono text-[10px] text-zinc-400 uppercase">
+              {circularBezelAngle.toFixed(1)}&deg; ROT
             </div>
           </div>
 
           <div className="space-y-1 text-right">
-            <span className="outfit-editorial text-[11px] text-zinc-400 tracking-widest block">
+            <span className="outfit-editorial text-[10px] text-zinc-500 tracking-[0.2em] block">
               STATUS
             </span>
-            <span className="font-mono text-[11px] px-2 py-0.5 border border-[#ff2a2a]/40 text-white inline-block">
-              {isGlitching ? `GLITCH_MOD_ACTIVE // ${(glitchSeverity * 100).toFixed(0)}%` : "DAMPING_CALIBRATED"}
+            <span className="font-mono text-[10px] text-white">
+              {isGlitching ? `SYNC_ACTIVE` : "STABLE"}
             </span>
-          </div>
-
-          <div className="font-mono text-[7px] text-zinc-600 uppercase">
-            CALIBRE.8800 // MOVEMENT CERTIFIED<br />
-            GENEVA STANDARDS SPEC 48A
           </div>
         </div>
 
