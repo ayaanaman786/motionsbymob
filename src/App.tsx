@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Manifesto from './components/Manifesto';
 import About from './components/About';
+import Services from './components/Services';
 import Gallery from './components/Gallery';
 
 import Contact from './components/Contact';
@@ -105,6 +106,9 @@ export default function App() {
 
           {/* The Studio & Collective About section */}
           <About />
+
+          {/* Affiliations & Services section */}
+          <Services />
 
           {/* Gallery Archive Catalog */}
           <Gallery />

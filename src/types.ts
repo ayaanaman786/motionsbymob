@@ -24,3 +24,18 @@ export interface NavigationLink {
   label: string;
   href: string;
 }
+
+export interface ServiceOffered {
+  name: string;
+  description?: string;
+}
+
+export interface Affiliation {
+  id: string;
+  partnerName: string;
+  collaborationTitle: string;
+  description: string;
+  services: ServiceOffered[];
+  logoUrl: string;
+  imageUrls: string[];
+}

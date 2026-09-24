@@ -1,10 +1,30 @@
-import { GalleryItem, ManifestoParagraph, NavigationLink } from './types';
+import { GalleryItem, ManifestoParagraph, NavigationLink, Affiliation } from './types';
 
 export const NAVIGATION_LINKS: NavigationLink[] = [
   { label: 'MANIFESTO', href: '#manifesto' },
   { label: 'ABOUT', href: '#about' },
-  { label: 'REELS & FILMS', href: '#gallery' },
+  { label: 'SERVICES', href: '#services' },
+  { label: 'GALLERY', href: '#gallery' },
   { label: 'CONNECT', href: '#contact' },
+];
+
+export const SERVICES_DATA: Affiliation[] = [
+  {
+    id: 'eleven-studio',
+    partnerName: 'Eleven Detailing Studio',
+    collaborationTitle: 'MOB X ELEVEN DETAILING STUDIO',
+    description: 'A premium partnership delivering unparalleled automotive protection and aesthetic refinement. We ensure your vehicle maintains its cinematic presence on and off the camera.',
+    services: [
+      { name: 'PPF (Paint Protection Film)', description: 'Invisible, self-healing shield against road debris.' },
+      { name: 'Complete Detailing Packages', description: 'Deep correction and ceramic coating for an immaculate finish.' }
+    ],
+    logoUrl: '/images/eleven logo.webp',
+    imageUrls: [
+      '/images/cruiser 80 series eleven.webp',
+      '/images/prado eleven.webp',
+      '/images/revo eleven.webp'
+    ]
+  }
 ];
 
 export const MANIFESTO_PARAGRAPHS: ManifestoParagraph[] = [
