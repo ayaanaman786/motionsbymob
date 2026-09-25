@@ -49,16 +49,16 @@ export default function Services() {
                   {/* Option A: Brutalist Split-Line */}
                   <div className="flex items-center gap-6 mb-10">
                     {/* MOB Logo */}
-                    <MOBLogo variant="horizontal" className="scale-75 origin-right opacity-90" />
+                    <MOBLogo variant="horizontal" />
                     
                     {/* Vertical Divider */}
-                    <div className="w-[1px] h-10 bg-white/20" />
+                    <div className="w-[1px] h-12 bg-white/20" />
                     
                     {/* Eleven Logo */}
                     <img 
                       src={affiliation.logoUrl} 
                       alt={affiliation.partnerName} 
-                      className="h-10 w-auto object-contain opacity-90 grayscale" 
+                      className="h-14 w-auto object-contain" 
                     />
                   </div>
                   
