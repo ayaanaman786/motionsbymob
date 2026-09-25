@@ -46,21 +46,19 @@ export default function Services() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  {/* Option B: Vertical Hierarchy Stack */}
-                  <div className="flex flex-col items-start gap-4 mb-10">
+                  {/* Option A: Brutalist Split-Line */}
+                  <div className="flex items-center gap-6 mb-10">
                     {/* MOB Logo */}
-                    <MOBLogo variant="horizontal" className="scale-75 origin-left opacity-90" />
+                    <MOBLogo variant="horizontal" className="scale-75 origin-right opacity-90" />
                     
-                    {/* Connecting Text */}
-                    <span className="outfit-editorial text-[9px] text-zinc-500 uppercase tracking-[0.4em] pl-1">
-                      IN COLLABORATION WITH
-                    </span>
+                    {/* Vertical Divider */}
+                    <div className="w-[1px] h-10 bg-white/20" />
                     
                     {/* Eleven Logo */}
                     <img 
                       src={affiliation.logoUrl} 
                       alt={affiliation.partnerName} 
-                      className="h-16 w-auto object-contain" 
+                      className="h-10 w-auto object-contain opacity-90 grayscale" 
                     />
                   </div>
                   
