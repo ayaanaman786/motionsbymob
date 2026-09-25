@@ -46,21 +46,22 @@ export default function Services() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  {/* Option 4: Interactive Hover/Reveal Logo State */}
-                  <div className="relative h-24 mb-8 group cursor-crosshair inline-block">
-                    {/* Primary Logo: Eleven (Visible by default, fades out on hover) */}
+                  {/* Option B: Vertical Hierarchy Stack */}
+                  <div className="flex flex-col items-start gap-4 mb-10">
+                    {/* MOB Logo */}
+                    <MOBLogo variant="horizontal" className="scale-75 origin-left opacity-90" />
+                    
+                    {/* Connecting Text */}
+                    <span className="outfit-editorial text-[9px] text-zinc-500 uppercase tracking-[0.4em] pl-1">
+                      IN COLLABORATION WITH
+                    </span>
+                    
+                    {/* Eleven Logo */}
                     <img 
                       src={affiliation.logoUrl} 
                       alt={affiliation.partnerName} 
-                      className="h-full w-auto object-contain transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0 group-hover:scale-95 origin-left" 
+                      className="h-16 w-auto object-contain" 
                     />
-                    
-                    {/* Secondary Logo: MOB x ELEVEN (Hidden by default, fades in on hover) */}
-                    <div className="absolute inset-0 h-full w-full flex items-center justify-start gap-4 transition-all duration-500 ease-in-out opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 pointer-events-none">
-                      <MOBLogo variant="horizontal" className="scale-90 origin-left" />
-                      <span className="outfit-editorial text-xs text-white/50 tracking-[0.3em]">X</span>
-                      <span className="outfit-editorial text-xs text-white tracking-[0.3em]">ELEVEN</span>
-                    </div>
                   </div>
                   
                   <h4 className="text-2xl md:text-3xl font-light tracking-widest mb-6 mt-6">
