@@ -15,8 +15,18 @@ export const SERVICES_DATA: Affiliation[] = [
     collaborationTitle: 'MOB X ELEVEN DETAILING STUDIO',
     description: 'A premium partnership delivering unparalleled automotive protection and aesthetic refinement. We ensure your vehicle maintains its cinematic presence on and off the camera.',
     services: [
-      { name: 'PPF (Paint Protection Film)', description: 'Invisible, self-healing shield against road debris.' },
-      { name: 'Complete Detailing Packages', description: 'Deep correction and ceramic coating for an immaculate finish.' }
+      { 
+        name: 'PPF (Paint Protection Film)', 
+        description: 'Invisible, self-healing shield against road debris. Authorized OneFilm PPF installer with exclusive discounted rates through MOB.' 
+      },
+      { 
+        name: 'Complete Detailing Packages', 
+        description: 'Deep correction and ceramic coating for an immaculate finish. We exclusively use premium Koch-Chemie (KCX) products.' 
+      },
+      {
+        name: 'Comprehensive Care',
+        description: 'Full-spectrum services including interior & exterior detailing, deep cleaning, polishing, paint correction, ceramic coatings, engine-bay detailing, and interior restoration.'
+      }
     ],
     logoUrl: '/images/eleven logo.webp',
     imageUrls: [
